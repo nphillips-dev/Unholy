@@ -155,52 +155,64 @@ input[type=text], select, textarea{
   }
 
 /*List*/
-.list {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0;
+  /*List*/
+  .list {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  
+  .list-item {
+    color: #f2f2f2;
+    text-align: inherit;
+  }
+
+@media screen and (min-width : 320px) {
+  .list-item {
+    margin-right: 10%;
+    }  
+}
+@media screen and (min-width: 680px) {
+  .container {
+    margin-right: 5%;
+    }
 }
 
-.list-item {
-  width: 100%;
-  color: #f2f2f2;
-  text-align: inherit;
-}
-
-.list--item-action:hover, .list-group-item-action:focus {
-  z-index: 1;
-  color: #f2f2f2;
-  text-decoration: none;
-  background-color: #333;
-}
-
-.list-item-action:active {
-  color: #f2f2f2;
-  background-color: #333;
-}
-
-.list-item {
-  position: relative;
-  display: block;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: -1px;
-  background-color: #333;
-  border: 1px solid rgba(212, 53, 28, 0.25);		
-}
-
-.list-item:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-
-.list-item:last-child {
-  margin-bottom: 0;
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-}
+  .list--item-action:hover, .list-group-item-action:focus {
+    z-index: 1;
+    color: #f2f2f2;
+    text-decoration: none;
+    background-color: #333;
+  }
+  
+  .list-item-action:active {
+    color: #f2f2f2;
+    background-color: #333;
+  }
+  
+  .list-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #333;
+    border: 1px solid rgba(212, 53, 28, 0.25);		
+  }
+  
+  .list-item:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  
+  .list-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
 
   /*Cards*/
   .card {
