@@ -7,14 +7,9 @@
          font-family: 'Inter var', sans-serif;
     }
 }
-/*variables*/
- :root {
-     --unholy-background: #333 !important;
-     --unholy-font: #f2f2f2 !important;
-     --unholy-main: #d4351c !important;
-     --unholy-secondary: #cf4530 !important;
-     --unholy-border: rgba(212, 53, 28, 0.25) !important;
-}
+
+@import "core/unholy-variables.css";
+
  body {
      background-color: var(--unholy-background);
      color: var(--unholy-font);
@@ -230,18 +225,10 @@
      margin: 1rem 1rem 1rem 0;
      background-color: var(--unholy-background);
      color:var(--unholy-font);
-     -webkit-transition: -webkit-box-shadow .25s;
-     transition: -webkit-box-shadow .25s;
-     transition: box-shadow .25s;
-     transition: box-shadow .25s, -webkit-box-shadow .25s;
-     box-shadow: 0 4px 8px 0 var(--unholy-main);
-     transition: 0.3s;
      padding-left: 1em;
      padding-right: 1em;
 }
- .card:hover {
-     box-shadow: 0 8px 16px 0 var(--unholy-main);
-}
+
  .card-header {
      position: relative;
      margin: 0.5rem 0 1rem 0;
@@ -251,34 +238,10 @@
  .card-action {
      text-transform: uppercase;
 }
-/*Navigation - this will not form part of the core but lets do it for now*/
-/* Add a black background color to the top navigation */
- .nav {
-     background-color: var(--unholy-background);
-     overflow: hidden;
-}
-/* Style the links inside the navigation bar */
- .nav a {
-     float: left;
-     color: var(--unholy-font);
-     text-align: center;
-     padding: 14px 16px;
-     text-decoration: none;
-     font-size: 17px;
-}
-/* Change the color of links on hover */
- .nav a:hover {
-     background-color: var(--unholy-secondary);
-     color: black;
-}
-/* Add a color to the active/current link */
- .nav a.active {
-     background-color: var(--unholy-main);
-     color: var(--unholy-font);
-}
-/*this isn't core its for highlighting on the page*/
- ::selection {
-     color: var(--unholy-font);
-    ;
-     background: var(--unholy-main);
-}
+
+/*highlighting on the page*/
+::selection {
+    color: var(--unholy-font);
+   ;
+    background: var(--unholy-main);
+ }
