@@ -1,0 +1,9 @@
+/*Variables in this file will be used across any extension files pulled in*/
+
+:root {
+   --unholy-background: #333 !important;
+   --unholy-font: #f2f2f2 !important;
+   --unholy-main: #d4351c !important;
+   --unholy-secondary: #cf4530 !important;
+   --unholy-border: rgba(212, 53, 28, 0.25) !important;
+}

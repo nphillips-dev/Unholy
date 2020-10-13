@@ -1,0 +1,32 @@
+/*Nav bars are cool and funbut not part of the core
+ *This file will collect different navbars and side panels - for selective use.
+ *This will keep the core size down
+ */
+
+ @import "core/unholy-variables.css";
+
+/*W3Schools navigation*/
+.w3-nav {
+   background-color: var(--unholy-background);
+   overflow: hidden;
+}
+/* Style the links inside the navigation bar */
+.w3-nav a {
+   float: left;
+   color: var(--unholy-font);
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+   font-size: 17px;
+}
+/* Change the color of links on hover */
+.w3-nav a:hover {
+   background-color: var(--unholy-secondary);
+   color: black;
+}
+/* Add a color to the active/current link */
+.w3-nav a.active {
+   background-color: var(--unholy-main);
+   color: var(--unholy-font);
+}
+
