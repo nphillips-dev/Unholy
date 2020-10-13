@@ -1,0 +1,35 @@
+/*These CSS classes provide extensions to the core e.g.
+ *alignment,borders and anything else which isn't core
+ */
+
+ @import "core/unholy-variables.css";
+
+ /*Text alignmnet*/
+ .center {
+    text-align: center;
+ }
+
+ .right {
+    text-align: right;
+ }
+
+ .left{
+    text-align: left;
+ }
+
+ /*borders*/
+.shadow {
+   -webkit-transition: -webkit-box-shadow .25s;
+   transition: -webkit-box-shadow .25s;
+   transition: box-shadow .25s;
+   transition: box-shadow .25s, -webkit-box-shadow .25s;
+   box-shadow: 0 4px 8px 0 var(--unholy-main);
+   transition: 0.3s;
+}
+.shadow:hover {
+   box-shadow: 0 8px 16px 0 var(--unholy-main);
+}
+
+.rounded {
+   border-radius: 0.25rem;
+}
