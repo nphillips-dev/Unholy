@@ -94,6 +94,18 @@ Utility provides some of those classes, for use as you see fit e.g.
 * Oh no! My lists are left aligned! `<li class="list-item centered">`
 * Oh no! My lists are left aligned **AND** not curvey enough: `<li class="list-item centered rounded">`
 
+* Text alignment
+  * center
+  * right
+  * left
+* borders
+  * shadow
+  * thin
+  * thick
+  * rounded
+  * curved
+  * circle
+  
 ## Variables
 
 The top of each unholy file imports the variables file:
