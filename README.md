@@ -12,6 +12,7 @@ Feel free to pull down, mangle and use to your hearts content but please, please
 * Buttons: https://fdossena.com/index.php?p=html5cool/buttons/i.frag
 * Colours: https://design-system.service.gov.uk/styles/colour/
 * Form / navbar: https://www.w3schools.com/howto/howto_css_responsive_form.asp
+* Ham nav: https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/
 * Cards based on: https://materializecss.com/
 * List items: https://getbootstrap.com/
 * Ideas and inspiration from:
@@ -76,13 +77,26 @@ Lists are straight forward:
 
 ## Navigation
 
-At the time of writing, only a single navigation option has been added.
+The simplest of responsive nav, no collapsing, all menu
 
     <div class="w3-nav">
         <a href="#">Home</a>
         <a href="#">Stuff</a>
         <a class="active" href="#">Things</a>
     </div>
+
+Those of a more refined pallet might enjoy this little number
+
+    <nav id="hamnav">
+        <label for="hamburger">&#9776;</label>
+        <input type="checkbox" id="hamburger"/>
+
+        <div id="hamitems">
+            <a href="#">Home</a>
+            <a href="#">Stuff</a>
+            <a class="active" href="#">Things</a>
+        </div>
+    </nav>
 
 ## Utility
 
