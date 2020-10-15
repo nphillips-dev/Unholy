@@ -111,11 +111,11 @@ Utility provides some of those classes, for use as you see fit e.g.
 The top of each unholy file imports the variables file:
 
     :root {
-    --unholy-background: #333 !important;
-    --unholy-font: #f2f2f2 !important;
-    --unholy-main: #d4351c !important;
-    --unholy-secondary: #cf4530 !important;
-    --unholy-border: rgba(212, 53, 28, 0.25) !important;
+    --unholy-background: #333;
+    --unholy-font: #f2f2f2;
+    --unholy-main: #d4351c;
+    --unholy-secondary: #cf4530;
+    --unholy-border: rgba(212, 53, 28, 0.25);
     }
 
 The default theme is all black and red but all the unholy files use var() placeholders. Why?
