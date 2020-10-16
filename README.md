@@ -75,6 +75,24 @@ Lists are straight forward:
         </li>
     </ul>
 
+Tables adhere to K.I.S.S principles - you need a div wrapper with the `table-container` class
+N.B. put it on the row, the column or a new div if you like, doesn't seem to matter. 
+
+    <div class="row">
+        <div class="column-full table-container">
+            <table>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                </tr>
+                <tr>
+                  <td>Spooky</td>
+                  <td>Bob</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+
 ## Navigation
 
 The simplest of responsive nav, no collapsing, all menu
