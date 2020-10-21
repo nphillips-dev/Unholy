@@ -12,6 +12,7 @@ Feel free to pull down, mangle and use to your hearts content but please, please
 * Buttons: https://fdossena.com/index.php?p=html5cool/buttons/i.frag
 * Colours: https://design-system.service.gov.uk/styles/colour/
 * Form / navbar: https://www.w3schools.com/howto/howto_css_responsive_form.asp
+* Ham nav: https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/
 * Cards based on: https://materializecss.com/
 * List items: https://getbootstrap.com/
 * Ideas and inspiration from:
@@ -74,15 +75,46 @@ Lists are straight forward:
         </li>
     </ul>
 
+Tables adhere to K.I.S.S principles - you need a div wrapper with the `table-container` class
+N.B. put it on the row, the column or a new div if you like, doesn't seem to matter. 
+
+    <div class="row">
+        <div class="column-full table-container">
+            <table>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                </tr>
+                <tr>
+                  <td>Spooky</td>
+                  <td>Bob</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+
 ## Navigation
 
-At the time of writing, only a single navigation option has been added.
+The simplest of responsive nav, no collapsing, all menu
 
     <div class="w3-nav">
         <a href="#">Home</a>
         <a href="#">Stuff</a>
         <a class="active" href="#">Things</a>
     </div>
+
+Those of a more refined pallet might enjoy this little number
+
+    <nav id="hamnav">
+        <label for="hamburger">&#9776;</label>
+        <input type="checkbox" id="hamburger"/>
+
+        <div id="hamitems">
+            <a href="#">Home</a>
+            <a href="#">Stuff</a>
+            <a class="active" href="#">Things</a>
+        </div>
+    </nav>
 
 ## Utility
 
@@ -94,16 +126,28 @@ Utility provides some of those classes, for use as you see fit e.g.
 * Oh no! My lists are left aligned! `<li class="list-item centered">`
 * Oh no! My lists are left aligned **AND** not curvey enough: `<li class="list-item centered rounded">`
 
+* Text alignment
+  * center
+  * right
+  * left
+* borders
+  * shadow
+  * thin
+  * thick
+  * rounded
+  * curved
+  * circle
+  
 ## Variables
 
 The top of each unholy file imports the variables file:
 
     :root {
-    --unholy-background: #333 !important;
-    --unholy-font: #f2f2f2 !important;
-    --unholy-main: #d4351c !important;
-    --unholy-secondary: #cf4530 !important;
-    --unholy-border: rgba(212, 53, 28, 0.25) !important;
+    --unholy-background: #333;
+    --unholy-font: #f2f2f2;
+    --unholy-main: #d4351c;
+    --unholy-secondary: #cf4530;
+    --unholy-border: rgba(212, 53, 28, 0.25);
     }
 
 The default theme is all black and red but all the unholy files use var() placeholders. Why?
