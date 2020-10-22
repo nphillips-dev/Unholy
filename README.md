@@ -1,11 +1,11 @@
 # Unholy
-A random thought which got carried away into an idea which became a light weight CSS "framework"
+A random thought which got carried away into an idea which became a light weight CSS "boilerplate"
 
 I had an idea of "oh I wonder what making a framework for CSS is like" but forgot im a jack of all trades and a master of none and I didn't know how to do that.
 
 Instead I went insane, combining the features of about about half a dozen different frameworks into one tiny one. Enough power to give a grid with some components.
 
-So will I work on this more?? Maybe, it was a pointless 5 minute (okay 2 days) experiment but it was educational.
+For v2.0.0 I did some research into flexbox, altered some of the core to simplify it but (hopefully) improve the responsiveness. 
 
 Feel free to pull down, mangle and use to your hearts content but please, please give visit and use the work of the people who know what they are doing and actually worked hard on beautiful things for you all and not this unholy abomination!
 
@@ -32,11 +32,11 @@ Pull down a copy of the project, or see the latest release files, you will see t
 
 ## Core
 
-The following structure will provide a contain, with a row and a full width column, which contains a single card.
+The following structure will provide a contain, with a row and a full width box, which contains a single card.
 
     <div class="container">
         <div class="row">
-            <div class="column-full">
+            <div class="box-large">
                 <div class="card">
                     <div class="card-header">
                         Card Header
@@ -52,14 +52,11 @@ The following structure will provide a contain, with a row and a full width colu
         </div>  
     </div>
 
-Available columns are:
+Inside a row there are 3 types of basic boxes:
 
-* .column-single
-* .column-quarter 
-* .column-third 
-* .column-half 
-* .column-threeQuarters 
-* .column-full 
+* .box-small (22%)
+* .box-medium (50%)
+* .box-large (100%)
 
 Images would be structured as follows:
 
