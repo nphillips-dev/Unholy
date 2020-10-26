@@ -3,23 +3,26 @@ A random thought which got carried away into an idea which became a light weight
 
 I had an idea of "oh I wonder what making a framework for CSS is like" but forgot im a jack of all trades and a master of none and I didn't know how to do that.
 
-Instead I went insane, combining the features of about about half a dozen different frameworks into one tiny one. Enough power to give a grid with some components.
+Instead I went insane, combining the features of about about half a dozen different frameworks into one tiny one. Enough power to give a grid with some common components (see References at the end of Readme).
+
+## Why??
+
+My experience of front end frameworks is that, out of the box they are great, customising them can be a faff.
+
+The idea here is you can build a quick and dirty site. It works on the concept that your theme colours are going to be used in multiple places and for different jobs, for example:
+
+Active nav item and a submit button - both need seperate CSS written but in Unholy both use the same colour variable, change that variable and both elements restyle. See section on variables.
+
+I appriciate this might be restrictive to some really flashy front end humans, I've tried to make this easy to overrude (no !important) but for those with the style sense of a fish i.e. me, this is a nice quick way to style a site.
+
+## Version 2 and Rules
 
 For v2.0.0 I did some research into flexbox, altered some of the core to simplify it but (hopefully) improve the responsiveness. 
 
-Feel free to pull down, mangle and use to your hearts content but please, please give visit and use the work of the people who know what they are doing and actually worked hard on beautiful things for you all and not this unholy abomination!
-
-* Buttons: https://fdossena.com/index.php?p=html5cool/buttons/i.frag
-* Colours: https://design-system.service.gov.uk/styles/colour/
-* Form / navbar: https://www.w3schools.com/howto/howto_css_responsive_form.asp
-* Ham nav: https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/
-* Cards based on: https://materializecss.com/
-* List items: https://getbootstrap.com/
-* Ideas and inspiration from:
-* https://milligram.io/
-* http://getskeleton.com/
-
-N.B. People of the links, if I angered you by involving your code in this nightmare then ping me and I'll cut it out! 
+Unholy development has 3 'rules':
+1. Any element, component, utility or navigation must impliment the core variables
+2. Optional styling e.g. borders, should be provided by utility classes where possible
+3. Unholy core cannot be longer than 300 lines long
 
 ## Installation
 
@@ -150,6 +153,19 @@ The top of each unholy file imports the variables file:
 The default theme is all black and red but all the unholy files use var() placeholders. Why?
 Because now you've only got to change those variable colours and the whole of your site restyles.
 
-## Pros / Cons
 
-The idea here is you can build a quick and dirty site. It works on the idea that your main theme colour is going to be used in multiple places and for different jobs, which might be restrictive to some really flashy front end humans but for those with the style sense of a fish i.e. me, this is a nice quick way to style a site.
+## References / Thanks / Inspiration
+
+Feel free to pull down, mangle and use to your hearts content but please, please visit and use the work of the people who know what they are doing and worked hard on beautiful things for you all.
+
+* Buttons: https://fdossena.com/index.php?p=html5cool/buttons/i.frag
+* Colours: https://design-system.service.gov.uk/styles/colour/
+* Form / navbar: https://www.w3schools.com/howto/howto_css_responsive_form.asp
+* Ham nav: https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/
+* Cards based on: https://materializecss.com/
+* List items: https://getbootstrap.com/
+* Ideas and inspiration from:
+* https://milligram.io/
+* http://getskeleton.com/
+
+N.B. People of the links, if I angered you by involving your code in this nightmare then ping me and I'll cut it out! 
