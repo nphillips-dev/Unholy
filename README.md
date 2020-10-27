@@ -13,7 +13,7 @@ The idea here is you can build a quick and dirty site. It works on the concept t
 
 Active nav item and a submit button - both need seperate CSS written but in Unholy both use the same colour variable, change that variable and both elements restyle. See section on variables.
 
-I appriciate this might be restrictive to some really flashy front end humans, I've tried to make this easy to overrude (no !important) but for those with the style sense of a fish i.e. me, this is a nice quick way to style a site.
+I appriciate this might be restrictive to some really flashy front end humans, I've tried to make this easy to override (no !important) but for those with the style sense of a fish i.e. me, this is a nice quick way to style a site.
 
 ## Version 2 and Rules
 
@@ -61,12 +61,14 @@ Inside a row there are 3 types of basic boxes:
 * .box-medium (50%)
 * .box-large (100%)
 
-Images would be structured as follows:
+Images do not require special structure:
 
-        <div class="wrapper">
-            <img card-img-bottom" src="" alt="">
-        </div>
+    <img src="" alt="">
 
+Combine with utility for effects e.g.
+
+    <img class="circle shadow" src="" alt="">
+        
 Lists are straight forward:
     
     <ul class="list">
@@ -164,6 +166,7 @@ Feel free to pull down, mangle and use to your hearts content but please, please
 * Ham nav: https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/
 * Cards based on: https://materializecss.com/
 * List items: https://getbootstrap.com/
+* Images: https://www.freecodecamp.org/news/time-saving-css-techniques-to-create-responsive-images-ebb1e84f90d5/ 
 * Ideas and inspiration from:
 * https://milligram.io/
 * http://getskeleton.com/
