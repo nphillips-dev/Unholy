@@ -49,3 +49,10 @@
 .circle {
    border-radius: 50%;
  }
+
+ .banner{
+   background-color: var(--unholy-main);
+   margin: 20px;
+   height: 150px;
+   padding: 20px;
+}

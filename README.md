@@ -139,6 +139,8 @@ Utility provides some of those classes, for use as you see fit e.g.
   * rounded
   * curved
   * circle
+* Styled elements
+  * banner
   
 ## Variables
 
