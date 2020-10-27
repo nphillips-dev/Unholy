@@ -1,11 +1,7 @@
 @import url('https://rsms.me/inter/inter.css');
- html {
-     font-family: 'Inter', sans-serif;
-}
+ html {font-family: 'Inter', sans-serif;}
  @supports (font-variation-settings: normal) {
-     html {
-         font-family: 'Inter var', sans-serif;
-    }
+     html {font-family: 'Inter var', sans-serif;}
 }
 
 @import "core/unholy-variables.css";
@@ -34,6 +30,9 @@
    width: 22%;
    margin: 5px;
    flex: auto;
+}
+@media screen and (min-width : 320px) and (max-width : 670px) {
+    .row > div.box-small{width: 100%;}
 }
 
 .row > div.box-medium{
@@ -66,22 +65,12 @@
        margin-left: 8%;
   }
 }
-/* unvisited link */
- a:link {
-     color: var(--unholy-main);
-}
-/* visited link */
- a:visited {
-     color: var(--unholy-font);
-}
-/* mouse over link */
- a:hover {
-     color: var(--unholy-secondary);
-}
-/* selected link */
- a:active {
-     color: var(--unholy-secondary);
-}
+
+ a:link {color: var(--unholy-main);}
+ a:visited {color: var(--unholy-font);}
+ a:hover { color: var(--unholy-secondary)}
+ a:active {color: var(--unholy-secondary);}
+
  a.button{
      display:inline-block;
      padding:0.3em 1.2em;
@@ -96,8 +85,7 @@
      text-align:center;
      transition: all 0.2s;
 }
- a.button:hover{
-     background-color: var(--unholy-secondary);
+ a.button:hover{background-color: var(--unholy-secondary);
 }
  @media all and (max-width:30em) {
      a.button {
@@ -115,8 +103,7 @@
      box-sizing: border-box;
      resize: vertical;
 }
- option:checked {
-     box-shadow: 0 0 10px 100px var(--unholy-main) inset;
+ option:checked {box-shadow: 0 0 10px 100px var(--unholy-main) inset;
 }
 /* Style the label to display next to the inputs */
  label {
@@ -173,14 +160,10 @@
      text-align: inherit;
 }
  @media screen and (min-width : 320px) {
-     .list-item {
-         margin-right: 10%;
-    }
+     .list-item {margin-right: 10%;}
 }
  @media screen and (min-width: 680px) {
-     .container {
-         margin-right: 5%;
-    }
+     .container {margin-right: 5%;}
 }
  .list--item-action:hover, .list-group-item-action:focus {
      z-index: 1;
@@ -210,18 +193,12 @@
      border-bottom-left-radius: 0.25rem;
 }
 /*Images*/
- .wrapper {
-     position: relative;
-     padding-top: 56.25%;
-    /* 16:9 Aspect Ratio */
-}
- img {
-     position: absolute;
-     left: 0;
-     top: 0;
-     width: 100%;
-     height: auto;
-}
+img {
+    height: auto;
+    width: 100%;
+    max-width: 720px;
+  }
+  
 /*Cards*/
  .card {
      position: relative;
@@ -238,9 +215,7 @@
      background-color: var(--unholy-background);
      color:var(--unholy-font);
 }
- .card-action {
-     text-transform: uppercase;
-}
+ .card-action {text-transform: uppercase;}
 
  /*table*/
  .table-container {overflow-x:auto;}
