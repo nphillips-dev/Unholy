@@ -1,239 +1,165 @@
 @import url('https://rsms.me/inter/inter.css');
- html {font-family: 'Inter', sans-serif;}
- @supports (font-variation-settings: normal) {
-     html {font-family: 'Inter var', sans-serif;}
-}
-
 @import "core/unholy-variables.css";
 
- body {
-     background-color: var(--unholy-background);
-     color: var(--unholy-font);
+html {
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
 }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+@supports (font-variation-settings: normal) {
+    html { font-family: 'Inter var', sans-serif; }
+}
+
+body {
+    background-color: var(--unholy-background);
+    color: var(--unholy-font);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- Layout & Grid (Flexbox) --- */
 .container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
-.container > div.row {
-    display: -ms-flexbox;
+
+.row {
     display: flex;
-    flex-flow: row wrap;
-    margin-right: -15px;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 -10px;
 }
 
-.row > div.box-small{
-   width: 22%;
-   margin: 5px;
-   flex: auto;
-}
-@media screen and (min-width : 320px) and (max-width : 670px) {
-    .row > div.box-small{width: 100%;}
+.row > div {
+    padding: 10px;
+    flex: 1 1 100%; /* Mobile first */
 }
 
-.row > div.box-medium{
-   width: 48%;
-   margin: 5px;
-   flex: auto;
+@media screen and (min-width: 600px) {
+    .row > div.box-small { flex: 1 1 22%; max-width: 25%; }
+    .row > div.box-medium { flex: 1 1 48%; max-width: 50%; }
+    .row > div.box-large { flex: 1 1 100%; max-width: 100%; }
 }
 
-.row > div.box-large{
-   width: 100%;
-   margin-left: 0;
-   flex: auto;
+/* --- Typography & Links --- */
+a {
+    color: var(--unholy-main);
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-@media screen and (min-width : 320px) {
-   .container {
-       width: 90%;
-       margin-left: 2%;
-  }
-}
-@media screen and (min-width: 680px) {
-   .container {
-       width: 85%;
-       margin-left: 4%;
-  }
-}
-@media screen and (min-width : 1024px) {
-   .container {
-       width: 80%;
-       margin-left: 8%;
-  }
+a:hover, a:active { color: var(--unholy-secondary); }
+
+a.button {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    margin: 0 0.3rem 0.3rem 0;
+    color: var(--unholy-font);
+    background-color: var(--unholy-main);
+    text-align: center;
+    border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
- a:link {color: var(--unholy-main);}
- a:visited {color: var(--unholy-font);}
- a:hover { color: var(--unholy-secondary)}
- a:active {color: var(--unholy-secondary);}
+a.button:hover { background-color: var(--unholy-secondary); }
 
- a.button{
-     display:inline-block;
-     padding:0.3em 1.2em;
-     margin:0 0.3em 0.3em 0;
-     border-radius:2em;
-     box-sizing: border-box;
-     text-decoration:none;
-     font-family:'Roboto',sans-serif;
-     font-weight:300;
-     color:var(--unholy-font);
-     background-color: var(--unholy-main);
-     text-align:center;
-     transition: all 0.2s;
+@media all and (max-width: 480px) {
+    a.button { display: block; width: 100%; margin: 0.5rem 0; }
 }
- a.button:hover{background-color: var(--unholy-secondary);
+
+/* --- Forms (Modernized Flex) --- */
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--unholy-border);
+    background-color: transparent;
+    color: var(--unholy-font);
+    border-radius: 4px;
 }
- @media all and (max-width:30em) {
-     a.button {
-         display:block;
-         margin:0.2em auto;
-    }
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--unholy-main);
 }
-/*Forms*/
-/* Style inputs, select elements and textareas */
- input[type=text], select, textarea{
-     width: 100%;
-     padding: 12px;
-     border: 1px solid #ccc;
-     border-radius: 4px;
-     box-sizing: border-box;
-     resize: vertical;
+
+label { padding: 12px 12px 12px 0; display: inline-block; }
+
+input[type=submit] {
+    background-color: var(--unholy-main);
+    color: var(--unholy-font);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
- option:checked {box-shadow: 0 0 10px 100px var(--unholy-main) inset;
+
+input[type=submit]:hover { background-color: var(--unholy-secondary); }
+
+.col-25 { flex: 1 1 100%; }
+.col-75 { flex: 1 1 100%; }
+
+@media screen and (min-width: 600px) {
+    .col-25 { flex: 0 0 25%; }
+    .col-75 { flex: 0 0 75%; }
 }
-/* Style the label to display next to the inputs */
- label {
-     padding: 12px 12px 12px 0;
-     display: inline-block;
+
+/* --- Lists --- */
+.list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
-/* Style the submit button */
- input[type=submit] {
-     background-color: var(--unholy-main);
-     color: var(--unholy-font);
-     padding: 12px 20px;
-     border: none;
-     border-radius: 4px;
-     cursor: pointer;
-     float: right;
+
+.list-item {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--unholy-background);
+    border: 1px solid var(--unholy-border);
+    margin-bottom: -1px;
 }
-/* Floating column for labels: 25% width */
- .col-25 {
-     float: left;
-     width: 25%;
-     margin-top: 6px;
-}
-/* Floating column for inputs: 75% width */
- .col-75 {
-     float: left;
-     width: 75%;
-     margin-top: 6px;
-}
-/* Clear floats after the columns */
- .row:after {
-     content: "";
-     display: table;
-     clear: both;
-}
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
- @media screen and (max-width: 600px) {
-     .col-25, .col-75, input[type=submit] {
-         width: 100%;
-         margin-top: 0;
-    }
-}
-/*List*/
- .list {
-     display: -ms-flexbox;
-     display: flex;
-     -ms-flex-direction: column;
-     flex-direction: column;
-     padding-left: 0;
-     margin-bottom: 0;
-     margin-right: 0;
-}
- .list-item {
-     color: var(--unholy-font);
-     text-align: inherit;
-}
- @media screen and (min-width : 320px) {
-     .list-item {margin-right: 10%;}
-}
- @media screen and (min-width: 680px) {
-     .container {margin-right: 5%;}
-}
- .list--item-action:hover, .list-group-item-action:focus {
-     z-index: 1;
-     color: var(--unholy-font);
-     text-decoration: none;
-     background-color: var(--unholy-background);
-}
- .list-item-action:active {
-     color: var(--unholy-font);
-     background-color: var(--unholy-background);
-}
- .list-item {
-     position: relative;
-     display: block;
-     padding: 0.75rem 1.25rem;
-     margin-bottom: -1px;
-     background-color: var(--unholy-background);
-     border: 1px solid var(--unholy-border);
-}
- .list-item:first-child {
-     border-top-left-radius: 0.25rem;
-     border-top-right-radius: 0.25rem;
-}
- .list-item:last-child {
-     margin-bottom: 0;
-     border-bottom-right-radius: 0.25rem;
-     border-bottom-left-radius: 0.25rem;
-}
-/*Images*/
+
+a.list-item:hover { background-color: rgba(255, 255, 255, 0.05); }
+
+/* --- Media --- */
 img {
     height: auto;
     width: 100%;
-    max-width: 720px;
-  }
-  
-/*Cards*/
- .card {
-     position: relative;
-     margin: 1rem 1rem 1rem 0;
-     background-color: var(--unholy-background);
-     color:var(--unholy-font);
-     padding-left: 1em;
-     padding-right: 1em;
+    display: block;
 }
 
- .card-header {
-     position: relative;
-     margin: 0.5rem 0 1rem 0;
-     background-color: var(--unholy-background);
-     color:var(--unholy-font);
+/* --- Cards (Structural Only) --- */
+.card {
+    background-color: var(--unholy-background);
+    color: var(--unholy-font);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
- .card-action {text-transform: uppercase;}
 
- /*table*/
- .table-container {overflow-x:auto;}
- table {
+.card-header { margin-bottom: 1rem; font-weight: bold; }
+.card-content { flex-grow: 1; }
+.card-action { margin-top: 1rem; text-transform: uppercase; }
+
+/* --- Tables --- */
+.table-container { overflow-x: auto; }
+
+table {
     border-collapse: collapse;
-    border-spacing: 0;
     width: 100%;
     border: 1px solid var(--unholy-border);
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even){background-color: var(--unholy-secondary)}
+}
 
-/*highlighting on the page*/
+th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--unholy-border); }
+tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.05); }
+
+/* --- Selection --- */
 ::selection {
     color: var(--unholy-font);
     background: var(--unholy-main);
- }
+}

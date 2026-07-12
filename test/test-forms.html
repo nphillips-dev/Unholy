@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test: Forms & Tables</title>
+    <link rel="stylesheet" href="../unholy-core.css">
+    <link rel="stylesheet" href="../unholy-utility.css">
+    <link rel="stylesheet" href="../unholy-navigation.css">
+</head>
+<body>
+
+    <nav class="w3-nav">
+        <a href="index.html">Back to Dashboard</a>
+        <a href="test-forms.html" class="active">Forms & Tables</a>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            
+            <div class="box-medium">
+                <h2>Form Layout</h2>
+                <div class="card shadow rounded">
+                    <div class="card-content">
+                        <form>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="fname">First Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="fname" name="firstname" placeholder="Your name...">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="country">Country</label>
+                                </div>
+                                <div class="col-75">
+                                    <select id="country" name="country">
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="us">United States</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="subject">Subject</label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <input type="submit" value="Submit" style="margin-top: 15px;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-medium">
+                <h2>Data Table</h2>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Role</th>
+                        </tr>
+                        <tr>
+                            <td>Spooky</td>
+                            <td>Bob</td>
+                            <td>Ghost</td>
+                        </tr>
+                        <tr>
+                            <td>Frank</td>
+                            <td>Stein</td>
+                            <td>Monster</td>
+                        </tr>
+                        <tr>
+                            <td>Vlad</td>
+                            <td>Impaler</td>
+                            <td>Vampire</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

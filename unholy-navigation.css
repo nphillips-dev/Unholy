@@ -1,88 +1,74 @@
-/*Nav bars are cool and funbut not part of the core
- *This file will collect different navbars and side panels - for selective use.
- *This will keep the core size down
- */
+@import "core/unholy-variables.css";
 
- @import "core/unholy-variables.css";
-
-/*W3Schools navigation*/
+/* --- Standard Nav --- */
 .w3-nav {
-   background-color: var(--unholy-background);
-   overflow: hidden;
+    background-color: var(--unholy-background);
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--unholy-border);
 }
-/* Style the links inside the navigation bar */
+
 .w3-nav a {
-   float: left;
-   color: var(--unholy-font);
-   text-align: center;
-   padding: 14px 16px;
-   text-decoration: none;
-   font-size: 17px;
-}
-/* Change the color of links on hover */
-.w3-nav a:hover {
-   background-color: var(--unholy-secondary);
-   color: black;
-}
-/* Add a color to the active/current link */
-.w3-nav a.active {
-   background-color: var(--unholy-main);
-   color: var(--unholy-font);
+    color: var(--unholy-font);
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s;
 }
 
-/* [ON BIG SCREEN] */
-/* Wrapper */
+.w3-nav a:hover { background-color: rgba(255, 255, 255, 0.1); }
+.w3-nav a.active { background-color: var(--unholy-main); }
+
+/* --- Hamburger Nav --- */
 #hamnav {
-   width: 100%;
-   background: var(--unholy-background);
-   /* Optional */
-   position: sticky;
-   top: 0;
- }
- 
- /* Hide Hamburger */
- #hamnav label, #hamburger { display: none; }
- 
- /* Horizontal Menu Items */
- #hamitems { display: flex; }
- #hamitems a {
-   width: 20%; /* 100% / 5 tabs = 20% */
-   padding: 10px;
-   color: var(--unholy-font);
-   text-decoration: none;
-   text-align: center;
- }
- #hamitems a:hover {
-   background: var(--unholy-secondary);
- }
- 
- #hamitems a.active {
-   background-color: var(--unholy-main);
-   color: var(--unholy-font);
- }
- 
- /* [ON SMALL SCREENS] */
- @media screen and (max-width: 768px){
-   /* Show Hamburger Icon */
-   #hamnav label { 
-     display: inline-block; 
-     color: var(--unholy-font);
-     background: var(--unholy-main);
-     font-style: normal;
-     font-size: 1.2em;
-     padding: 10px;
-   }
- 
-   /* Break down menu items into vertical */
-   #hamitems a {
-     box-sizing: border-box;
-     display: block;
-     width: 100%;
-     border-top: 1px solid var(--unholy-border);
-   }
- 
-   /* Toggle Show/Hide Menu */
-   #hamitems { display: none; }
-   #hamnav input:checked ~ #hamitems { display: block; }
- }
+    width: 100%;
+    background: var(--unholy-background);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--unholy-border);
+}
 
+#hamnav label, #hamburger { display: none; }
+
+#hamitems {
+    display: flex;
+    width: 100%;
+}
+
+#hamitems a {
+    flex-grow: 1;
+    padding: 15px;
+    color: var(--unholy-font);
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+#hamitems a:hover { background-color: rgba(255, 255, 255, 0.1); }
+#hamitems a.active { background-color: var(--unholy-main); }
+
+@media screen and (max-width: 768px) {
+    #hamnav label { 
+        display: block; 
+        color: var(--unholy-font);
+        background: var(--unholy-background);
+        padding: 15px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    #hamnav label:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+    #hamitems {
+        display: none;
+        flex-direction: column;
+    }
+
+    #hamitems a {
+        width: 100%;
+        text-align: left;
+        border-top: 1px solid var(--unholy-border);
+    }
+
+    #hamnav input:checked ~ #hamitems { display: flex; }
+}
