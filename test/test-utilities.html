@@ -15,13 +15,22 @@
         <a href="test-utilities.html" class="active">Utilities</a>
     </nav>
 
-    <div class="container">
+    <div class="container my-4">
         
         <div class="row">
             <div class="box-large">
-                <h2 class="left">Left Aligned</h2>
-                <h2 class="center">Center Aligned</h2>
-                <h2 class="right">Right Aligned</h2>
+                <div class="bg-main text-center shadow shadow-hover curved p-4 my-2">
+                    <h1 class="m-0 text-uppercase">Composed Banner</h1>
+                    <p class="text-muted m-0 font-bold">Built entirely with atomic utility classes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box-large">
+                <h2 class="text-left">Left Aligned</h2>
+                <h2 class="text-center text-uppercase">Center Aligned & Uppercase</h2>
+                <h2 class="text-right text-muted">Right Aligned & Muted</h2>
             </div>
         </div>
 
@@ -29,27 +38,27 @@
             
             <div class="box-medium">
                 <h3>List Component</h3>
-                <ul class="list shadow">
-                    <li class="list-item">Standard list item 1</li>
-                    <a href="#" class="list-item">Linked list item (Hover me)</a>
-                    <li class="list-item center">Centered list item</li>
+                <ul class="list shadow rounded border-thin">
+                    <li class="list-item font-bold">Standard list item 1 (Bold)</li>
+                    <a href="#" class="list-item text-center bg-secondary">Linked list item (Secondary Bg)</a>
+                    <li class="list-item text-right text-muted">Right aligned (Muted)</li>
                 </ul>
             </div>
 
             <div class="box-medium">
                 <h3>Borders & Shapes</h3>
-                <div class="row">
-                    <div class="box-small center">
-                        <div class="thick padding" style="padding: 20px;">Thick</div>
+                <div class="row items-center">
+                    <div class="box-small text-center">
+                        <div class="border-thick p-3">Thick</div>
                     </div>
-                    <div class="box-small center">
-                        <div class="rounded thin" style="padding: 20px;">Rounded</div>
+                    <div class="box-small text-center">
+                        <div class="rounded border-thin p-3">Rounded</div>
                     </div>
-                    <div class="box-small center">
-                        <div class="curved thin shadow" style="padding: 20px;">Curved</div>
+                    <div class="box-small text-center">
+                        <div class="curved border-thin shadow shadow-hover p-3">Curved</div>
                     </div>
-                    <div class="box-small center">
-                        <div class="circle thin" style="padding: 20px; width: 80px; height: 80px; line-height: 40px; margin: 0 auto;">Circle</div>
+                    <div class="box-small text-center d-flex justify-center">
+                        <div class="circle border-thin d-flex items-center justify-center" style="width: 80px; height: 80px;">Circle</div>
                     </div>
                 </div>
             </div>
