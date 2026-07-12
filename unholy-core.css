@@ -1,165 +1,151 @@
 @import url('https://rsms.me/inter/inter.css');
 @import "core/unholy-variables.css";
 
+/* --- 1. Modern Reset & Base --- */
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
 html {
-    font-family: 'Inter', sans-serif;
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-@supports (font-variation-settings: normal) {
-    html { font-family: 'Inter var', sans-serif; }
+    font-family: 'Inter var', 'Inter', sans-serif;
+    color-scheme: dark light;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     background-color: var(--unholy-background);
     color: var(--unholy-font);
-    margin: 0;
-    line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* --- Layout & Grid (Flexbox) --- */
+/* Fluid Typography */
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; margin-block-end: 1rem; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+p { margin-block-end: 1rem; }
+
+/* --- 2. Layout & Grid (Gap-based) --- */
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -10px;
+    gap: 1.5rem;
+    margin-block-end: 1.5rem;
 }
 
-.row > div {
-    padding: 10px;
-    flex: 1 1 100%; /* Mobile first */
+/* Mobile First: All boxes span 100% vertically */
+.row > * {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Tablet Tier (~600px+): Introduce 2-column layouts to prevent squishing */
 @media screen and (min-width: 600px) {
-    .row > div.box-small { flex: 1 1 22%; max-width: 25%; }
-    .row > div.box-medium { flex: 1 1 48%; max-width: 50%; }
-    .row > div.box-large { flex: 1 1 100%; max-width: 100%; }
+    .box-small  { flex: 1 1 calc(50% - 1.5rem); } 
+    .box-medium { flex: 1 1 calc(50% - 1.5rem); }
+    .box-large  { flex: 1 1 100%; }
 }
 
-/* --- Typography & Links --- */
+/* Desktop Tier (~900px+): Full multi-column layout */
+@media screen and (min-width: 900px) {
+    .box-small  { flex: 1 1 calc(25% - 1.5rem); } 
+    .box-medium { flex: 1 1 calc(50% - 1.5rem); }
+    .box-large  { flex: 1 1 100%; }
+}
+
+/* --- 3. Interactive Elements --- */
 a {
     color: var(--unholy-main);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 }
 
 a:hover, a:active { color: var(--unholy-secondary); }
 
-a.button {
+a.button, button, input[type="submit"] {
     display: inline-block;
-    padding: 0.5rem 1.5rem;
-    margin: 0 0.3rem 0.3rem 0;
+    padding: 0.75rem 1.5rem;
     color: var(--unholy-font);
     background-color: var(--unholy-main);
+    border: none;
+    border-radius: 0.25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
     text-align: center;
-    border-radius: 4px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease;
 }
 
-a.button:hover { background-color: var(--unholy-secondary); }
-
-@media all and (max-width: 480px) {
-    a.button { display: block; width: 100%; margin: 0.5rem 0; }
+a.button:hover, button:hover, input[type="submit"]:hover { 
+    background-color: var(--unholy-secondary); 
 }
 
-/* --- Forms (Modernized Flex) --- */
-input[type=text], select, textarea {
+/* --- 4. Forms --- */
+input, select, textarea {
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
+    margin-block-start: 0.5rem;
     border: 1px solid var(--unholy-border);
-    background-color: transparent;
-    color: var(--unholy-font);
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.02);
+    color: inherit;
+    border-radius: 0.25rem;
+    font-family: inherit;
+    font-size: 1rem;
 }
 
 input:focus, select:focus, textarea:focus {
     outline: 2px solid var(--unholy-main);
+    outline-offset: 2px;
 }
 
-label { padding: 12px 12px 12px 0; display: inline-block; }
+label { display: block; font-weight: 500; }
 
-input[type=submit] {
-    background-color: var(--unholy-main);
-    color: var(--unholy-font);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover { background-color: var(--unholy-secondary); }
-
-.col-25 { flex: 1 1 100%; }
-.col-75 { flex: 1 1 100%; }
-
-@media screen and (min-width: 600px) {
-    .col-25 { flex: 0 0 25%; }
-    .col-75 { flex: 0 0 75%; }
-}
-
-/* --- Lists --- */
-.list {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.list-item {
-    display: block;
-    padding: 0.75rem 1.25rem;
-    background-color: var(--unholy-background);
-    border: 1px solid var(--unholy-border);
-    margin-bottom: -1px;
-}
-
-a.list-item:hover { background-color: rgba(255, 255, 255, 0.05); }
-
-/* --- Media --- */
-img {
-    height: auto;
-    width: 100%;
-    display: block;
-}
-
-/* --- Cards (Structural Only) --- */
+/* --- 5. Components (Cards & Lists) --- */
 .card {
     background-color: var(--unholy-background);
     color: var(--unholy-font);
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.card-header { margin-bottom: 1rem; font-weight: bold; }
-.card-content { flex-grow: 1; }
-.card-action { margin-top: 1rem; text-transform: uppercase; }
-
-/* --- Tables --- */
-.table-container { overflow-x: auto; }
-
-table {
-    border-collapse: collapse;
-    width: 100%;
+    flex-grow: 1; /* Automatically fills space without overflowing */
+    padding: 1.5rem;
     border: 1px solid var(--unholy-border);
 }
 
-th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--unholy-border); }
-tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.05); }
+.card-header { margin-block-end: 1rem; font-weight: 600; font-size: 1.25rem; }
+.card-content { flex-grow: 1; }
+.card-action { margin-block-start: 1.5rem; padding-block-start: 1rem; border-top: 1px solid var(--unholy-border); }
 
-/* --- Selection --- */
-::selection {
-    color: var(--unholy-font);
-    background: var(--unholy-main);
+.list { list-style: none; }
+.list-item {
+    display: block;
+    padding: 1rem;
+    background-color: var(--unholy-background);
+    border: 1px solid var(--unholy-border);
+    margin-block-end: -1px;
 }
+
+a.list-item:hover { background-color: rgba(255, 255, 255, 0.05); }
+
+/* --- 6. Media & Tables --- */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.table-container { overflow-x: auto; margin-block-end: 1.5rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 1rem; border-bottom: 1px solid var(--unholy-border); }
+tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.02); }
+
+::selection { color: var(--unholy-font); background: var(--unholy-main); }
