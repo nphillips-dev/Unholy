@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test: Animations</title>
+    <link rel="stylesheet" href="../unholy-core.css">
+    <link rel="stylesheet" href="../unholy-utility.css">
+    <link rel="stylesheet" href="../unholy-navigation.css">
+    <!-- Import the new animations library -->
+    <link rel="stylesheet" href="../unholy-animations.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Unholy Test Suite</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Dashboard</a>
+            <a href="test-animations.html" class="nav-item active">Animations</a>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        
+        <!-- Header animates in immediately -->
+        <div class="bg-main text-center shadow curved p-4 my-3 anim-slide-up">
+            <h1 class="m-0 text-uppercase">UI Animations</h1>
+            <p class="font-bold m-0" style="color: rgba(255,255,255,0.8);">Subtle, modern micro-interactions.</p>
+        </div>
+
+        <div class="row">
+            <div class="box-large">
+                <h2>Infinite States</h2>
+                <p class="text-muted">Used for loading states and active indicators.</p>
+            </div>
+        </div>
+
+        <div class="row items-center my-2 text-center">
+            <div class="box-medium">
+                <div class="card items-center justify-center p-4">
+                    <!-- The Spinner -->
+                    <div class="loader anim-spin my-2"></div>
+                    <p class="font-bold m-0">Processing...</p>
+                    <p class="text-muted text-sm m-0">.loader .anim-spin</p>
+                </div>
+            </div>
+            
+            <div class="box-medium">
+                <div class="card items-center justify-center p-4">
+                    <!-- The Pulse -->
+                    <div class="circle anim-pulse my-2" style="width: 1.5rem; height: 1.5rem; background-color: var(--unholy-secondary);"></div>
+                    <p class="font-bold m-0">Live Server</p>
+                    <p class="text-muted text-sm m-0">.circle .anim-pulse</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="box-large">
+                <h2>Staggered Slide Up</h2>
+                <p class="text-muted">Combine `.anim-slide-up` with `.delay-100`, `.delay-200`, etc., for smooth staggered entrances when pages load.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Card 1: 100ms delay -->
+            <div class="box-small anim-slide-up delay-100">
+                <div class="card text-center">
+                    <h3 class="m-0">Item 1</h3>
+                    <p class="text-muted my-2">.delay-100</p>
+                </div>
+            </div>
+            
+            <!-- Card 2: 200ms delay -->
+            <div class="box-small anim-slide-up delay-200">
+                <div class="card text-center">
+                    <h3 class="m-0">Item 2</h3>
+                    <p class="text-muted my-2">.delay-200</p>
+                </div>
+            </div>
+            
+            <!-- Card 3: 300ms delay -->
+            <div class="box-small anim-slide-up delay-300">
+                <div class="card text-center">
+                    <h3 class="m-0">Item 3</h3>
+                    <p class="text-muted my-2">.delay-300</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+@import "core/unholy-variables.css";
+
+/* ==========================================================================
+   1. Animation Variables
+   ========================================================================== */
+:root {
+    --unholy-anim-fast: 150ms;
+    --unholy-anim-base: 300ms;
+    --unholy-anim-slow: 500ms;
+    --unholy-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   2. Keyframes
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ==========================================================================
+   3. Utility Classes (One-Time Transitions)
+   ========================================================================== */
+.anim-fade-in { 
+    animation: fadeIn var(--unholy-anim-base) var(--unholy-ease) forwards; 
+}
+
+.anim-slide-up { 
+    animation: slideUp var(--unholy-anim-base) var(--unholy-ease) forwards; 
+}
+
+/* Staggering delays for lists or card grids */
+.delay-100 { animation-delay: 100ms; opacity: 0; }
+.delay-200 { animation-delay: 200ms; opacity: 0; }
+.delay-300 { animation-delay: 300ms; opacity: 0; }
+
+/* ==========================================================================
+   4. Utility Classes (Infinite Loops)
+   ========================================================================== */
+.anim-spin { 
+    animation: spin 1s linear infinite; 
+}
+
+.anim-pulse { 
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; 
+}
+
+/* Base Loader Component (Requires .anim-spin) */
+.loader {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid var(--unholy-border);
+    border-radius: 50%;
+    border-top-color: var(--unholy-main);
+}
+
+/* ==========================================================================
+   5. Accessibility: Respect System Preferences
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
