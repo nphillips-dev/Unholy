@@ -1,4 +1,6 @@
-/*Variables in this file will be used across any extension files pulled in*/
+/* ==========================================================================
+   1. Default Theme (Dark)
+   ========================================================================== */
 :root {
    --unholy-background: #0d1117; 
    --unholy-surface: #161b22;    
@@ -6,4 +8,51 @@
    --unholy-main: #da3633;       
    --unholy-secondary: #f85149;
    --unholy-border: rgba(255, 255, 255, 0.1); 
+}
+
+/* ==========================================================================
+   2. Native OS Light Mode Support
+   ========================================================================== */
+@media (prefers-color-scheme: light) {
+    :root {
+        --unholy-background: #f6f8fa; 
+        --unholy-surface: #ffffff;    
+        --unholy-font: #1f2328;       
+        --unholy-main: #d4351c;       
+        --unholy-secondary: #cf4530;
+        --unholy-border: rgba(31, 35, 40, 0.15); 
+    }
+}
+
+/* ==========================================================================
+   3. Explicit Overrides (Highest Specificity)
+   ========================================================================== */
+/* Force Dark Mode (even on a light OS) */
+html[data-theme="dark"] {
+   --unholy-background: #0d1117; 
+   --unholy-surface: #161b22;    
+   --unholy-font: #e6edf3;       
+   --unholy-main: #da3633;       
+   --unholy-secondary: #f85149;
+   --unholy-border: rgba(255, 255, 255, 0.1); 
+}
+
+/* Force Light Mode (even on a dark OS) */
+html[data-theme="light"] {
+    --unholy-background: #f6f8fa; 
+    --unholy-surface: #ffffff;    
+    --unholy-font: #1f2328;       
+    --unholy-main: #d4351c;       
+    --unholy-secondary: #cf4530;
+    --unholy-border: rgba(31, 35, 40, 0.15); 
+}
+
+/* Custom Theme: Ocean (Deep Blues and Cyan) */
+html[data-theme="ocean"] {
+    --unholy-background: #0f172a; 
+    --unholy-surface: #1e293b;    
+    --unholy-font: #f8fafc;       
+    --unholy-main: #0ea5e9;       
+    --unholy-secondary: #38bdf8;
+    --unholy-border: rgba(255, 255, 255, 0.1); 
 }

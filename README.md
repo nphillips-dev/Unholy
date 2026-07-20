@@ -151,25 +151,25 @@ Version 3.1.0 introduces an optional `unholy-animations.css` module focused stri
     <!-- Example: Spinner -->
     <div class="loader anim-spin"></div>
 
-## Variables
+## Variables & Theming Engine
 
-The top of each unholy file imports the variables file. For v3, the default theme has been upgraded to a premium, deep dark mode.
+The top of each unholy file imports the variables file. The default theme has been upgraded to a premium dark mode, but the framework now includes a robust multi-theme engine powered by native OS toggling and `data-theme` attributes.
 
-    :root {
-       /* Deeper, cooler base canvas */
-       --unholy-background: #0d1117; 
-       /* Slightly lighter elevation for cards and navbars */
-       --unholy-surface: #161b22;    
-       /* Softer, premium typography colors */
-       --unholy-font: #e6edf3;       
-       /* Crisper reds */
-       --unholy-main: #da3633;       
-       --unholy-secondary: #f85149;
-       /* Neutral, ultra-subtle structural borders */
-       --unholy-border: rgba(255, 255, 255, 0.1); 
-    }
+By default, Unholy will render the Dark theme, but will automatically switch to the Light theme if the user's Operating System requests it (`prefers-color-scheme: light`).
 
-Because all files use `var()` placeholders, you only have to change those six variables, and the entire framework restyles itself to your new brand instantly.
+### Forcing a Specific Theme
+
+If you want to bypass the OS preferences and permanently force a specific theme across your entire application, you simply add the `data-theme` attribute to your opening `<html>` tag.
+
+    <!-- This app will always load the high-contrast Ocean theme -->
+    <html lang="en" data-theme="ocean">
+
+Available themes built into `unholy-variables.css`:
+* `data-theme="dark"` (Default)
+* `data-theme="light"`
+* `data-theme="ocean"` (Deep blues and cyan accents)
+
+Because all files use `var()` placeholders, you only have to change those six variables within the root blocks to build and distribute your own custom themes instantly.
 
 ## References / Thanks / Inspiration
 

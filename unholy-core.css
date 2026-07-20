@@ -19,6 +19,8 @@ body {
     background-color: var(--unholy-background);
     color: var(--unholy-font);
     min-height: 100vh;
+    /* Smoothly animate background and text colors when themes change */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Fluid Typography */
