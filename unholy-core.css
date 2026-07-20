@@ -96,29 +96,32 @@ input, select, textarea {
     padding: 0.75rem;
     margin-block-start: 0.5rem;
     border: 1px solid var(--unholy-border);
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: var(--unholy-background); /* Swapped to background to look recessed */
     color: inherit;
     border-radius: 0.25rem;
     font-family: inherit;
     font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input:focus, select:focus, textarea:focus {
-    outline: 2px solid var(--unholy-main);
-    outline-offset: 2px;
+    outline: none;
+    border-color: var(--unholy-main);
+    box-shadow: 0 0 0 3px rgba(218, 54, 51, 0.15); /* Modern glow focus ring */
 }
 
 label { display: block; font-weight: 500; }
 
 /* --- 5. Components (Cards & Lists) --- */
 .card {
-    background-color: var(--unholy-background);
+    background-color: var(--unholy-surface); /* Uses the new elevated color */
     color: var(--unholy-font);
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Automatically fills space without overflowing */
+    flex-grow: 1;
     padding: 1.5rem;
     border: 1px solid var(--unholy-border);
+    border-radius: 0.5rem; /* Add a slight default radius to soften the edges */
 }
 
 .card-header { margin-block-end: 1rem; font-weight: 600; font-size: 1.25rem; }

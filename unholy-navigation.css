@@ -2,7 +2,7 @@
 
 /* --- 1. The Modern Navbar --- */
 .navbar {
-    background-color: var(--unholy-background);
+    background-color: var(--unholy-surface); /* Matches the cards */
     display: flex;
     align-items: center;
     padding: 0 1rem;
@@ -45,7 +45,11 @@
 }
 
 .nav-item.active { 
-    background-color: var(--unholy-main); 
+    .nav-item.active { 
+    background-color: rgba(218, 54, 51, 0.1); /* 10% opacity of the main red */
+    color: var(--unholy-main);
+    font-weight: 600;
+}
 }
 
 .ml-auto { margin-left: auto; }
@@ -71,6 +75,9 @@
     left: 0;
     margin-top: 0.25rem;
     overflow: hidden;
+    background-color: var(--unholy-surface); /* Elevated surface */
+    border: 1px solid var(--unholy-border);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth in dark mode */
 }
 
 .dropdown-right .dropdown-content {
