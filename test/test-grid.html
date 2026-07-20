@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test: Grid & Cards</title>
+    <link rel="stylesheet" href="../unholy-core.css">
+    <link rel="stylesheet" href="../unholy-utility.css">
+    <link rel="stylesheet" href="../unholy-navigation.css">
+</head>
+<body>
+
+<nav id="hamnav">
+    <label for="hamburger">&#9776; Main Menu</label>
+    <input type="checkbox" id="hamburger"/>
+    
+    <div id="hamitems">
+        <a href="index.html" class="nav-item">Dashboard</a>
+        <a href="test-grid.html" class="nav-item active">Grid</a>
+        <a href="test-forms.html" class="nav-item">Forms</a>
+        <a href="test-utilities.html" class="nav-item">Utilities</a>
+        <a href="test-navigation.html" class="nav-item">Navigation</a>
+    </div>
+</nav>
+
+    <div class="container my-4">
+        <h2 class="text-center">3-Tier Grid System Test</h2>
+        <p class="text-center text-muted">Resize your browser window to test the Mobile (1-col) &rarr; Tablet (2-col) &rarr; Desktop (4-col) flow.</p>
+        
+        <div class="row">
+            <div class="box-large">
+                <div class="card shadow border-thin">
+                    <div class="card-header">Large Box</div>
+                    <div class="card-content">Spans 100% width on Mobile, Tablet, and Desktop sizes.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box-medium">
+                <div class="card shadow border-thin">
+                    <div class="card-header">Medium Box 1</div>
+                    <div class="card-content">
+                        <strong class="text-uppercase">Mobile:</strong> 100%<br>
+                        <strong class="text-uppercase">Tablet & Desktop:</strong> 50%
+                    </div>
+                </div>
+            </div>
+            <div class="box-medium">
+                <div class="card shadow border-thin">
+                    <div class="card-header">Medium Box 2</div>
+                    <div class="card-content">
+                        <strong class="text-uppercase">Mobile:</strong> 100%<br>
+                        <strong class="text-uppercase">Tablet & Desktop:</strong> 50%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box-small">
+                <div class="card shadow border-thin"><div class="card-content text-center">Mobile: 100%<br>Tablet: 50%<br>Desktop: 25%</div></div>
+            </div>
+            <div class="box-small">
+                <div class="card shadow border-thin"><div class="card-content text-center">Mobile: 100%<br>Tablet: 50%<br>Desktop: 25%</div></div>
+            </div>
+            <div class="box-small">
+                <div class="card shadow border-thin"><div class="card-content text-center">Mobile: 100%<br>Tablet: 50%<br>Desktop: 25%</div></div>
+            </div>
+            <div class="box-small">
+                <div class="card shadow border-thin"><div class="card-content text-center">Mobile: 100%<br>Tablet: 50%<br>Desktop: 25%</div></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

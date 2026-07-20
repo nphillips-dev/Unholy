@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test: Navigation</title>
+    <link rel="stylesheet" href="../unholy-core.css">
+    <link rel="stylesheet" href="../unholy-utility.css">
+    <link rel="stylesheet" href="../unholy-navigation.css">
+</head>
+<body>
+
+    <!-- Main Site Navigation -->
+    <nav id="hamnav">
+        <label for="hamburger">&#9776; Main Menu</label>
+        <input type="checkbox" id="hamburger"/>
+        
+        <div id="hamitems">
+            <a href="index.html" class="nav-item">Dashboard</a>
+            <a href="test-grid.html" class="nav-item">Grid</a>
+            <a href="test-forms.html" class="nav-item">Forms</a>
+            <a href="test-utilities.html" class="nav-item">Utilities</a>
+            <a href="test-navigation.html" class="nav-item active">Navigation</a>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        
+        <div class="bg-main text-center shadow shadow-hover curved p-4 my-3">
+            <h1 class="m-0 text-uppercase">Navigation Components</h1>
+            <p class="text-muted m-0 font-bold">Testing modern flex-based navbars and sidebars.</p>
+        </div>
+
+        <div class="row">
+            <div class="box-large">
+                <h2>1. Top Navigation Examples</h2>
+                <p>Isolated examples of top navigation bars testing internal flex alignments and dropdowns.</p>
+                
+                <h3 class="mt-4">Split Navigation (Right-Aligned Dropdown)</h3>
+                <nav class="navbar border-thin rounded">
+                    <a href="#" class="nav-brand" style="margin-left: 1rem;">Brand</a>
+                    <div class="nav-links">
+                        <a href="#" class="nav-item active">Home</a>
+                        <a href="#" class="nav-item">About</a>
+                    </div>
+                    
+                    <div class="nav-links ml-auto" style="margin-right: 1rem;">
+                        <div class="dropdown dropdown-right">
+                            <button class="nav-item">Options ▾</button>
+                            <div class="dropdown-content">
+                                <a href="#" class="nav-item">Action 1</a>
+                                <a href="#" class="nav-item">Action 2</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <h3 class="mt-4">Left-Aligned Dropdown</h3>
+                <nav class="navbar border-thin rounded">
+                    <div class="nav-links" style="margin-left: 1rem;">
+                        <a href="#" class="nav-item active">Store</a>
+                        <div class="dropdown">
+                            <button class="nav-item">Categories ▾</button>
+                            <div class="dropdown-content">
+                                <a href="#" class="nav-item">Apparel</a>
+                                <a href="#" class="nav-item">Accessories</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="box-large">
+                <h2>2. Containerized Sidebar Example</h2>
+                <p>The sidebar can be dropped into any flex container to build dashboard interfaces without hijacking the whole page.</p>
+                
+                <!-- Mock Dashboard Container -->
+                <div class="border-thin rounded shadow d-flex" style="height: 450px; overflow: hidden;">
+                    
+                    <!-- Sidebar Component -->
+                    <nav class="sidebar">
+                        <a href="#" class="nav-brand text-uppercase">Admin Panel</a>
+                        <a href="#" class="nav-item active">Overview</a>
+                        <a href="#" class="nav-item">Analytics</a>
+                        <a href="#" class="nav-item">Reports</a>
+                        <a href="#" class="nav-item">Settings</a>
+                        
+                        <div style="margin-top: auto;">
+                            <a href="#" class="nav-item text-muted">Log Out</a>
+                        </div>
+                    </nav>
+
+                    <!-- Mock Main Content -->
+                    <div class="p-4" style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.02); overflow-y: auto;">
+                        <h3>Dashboard Overview</h3>
+                        <p class="text-muted">This is how the sidebar looks when restricted to a specific container height instead of 100vh.</p>
+                        
+                        <div class="row my-4">
+                            <div class="box-small bg-main rounded p-3 text-center">Metric 1</div>
+                            <div class="box-small bg-secondary rounded p-3 text-center">Metric 2</div>
+                            <div class="box-small border-thin rounded p-3 text-center">Metric 3</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

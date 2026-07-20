@@ -1,51 +1,84 @@
-/*These CSS classes provide extensions to the core e.g.
- *alignment,borders and anything else which isn't core
- */
+@import "core/unholy-variables.css";
 
- @import "core/unholy-variables.css";
+/* ==========================================================================
+   1. Text Alignment & Style
+   ========================================================================== */
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
 
- /*Text alignment*/
- .center {
-    text-align: center;
- }
+.text-uppercase { text-transform: uppercase; }
+.text-muted     { opacity: 0.6; }
+.font-bold      { font-weight: 700; }
 
- .right {
-    text-align: right;
- }
+/* ==========================================================================
+   2. Spacing (Margin & Padding Scale)
+   ========================================================================== */
+/* Margins */
+.m-0 { margin: 0; }
+.m-1 { margin: 0.5rem; }
+.m-2 { margin: 1rem; }
+.m-3 { margin: 1.5rem; }
+.m-4 { margin: 2rem; }
 
- .left{
-    text-align: left;
- }
+/* Block Spacing (Top/Bottom) */
+.my-0 { margin-block: 0; }
+.my-1 { margin-block: 0.5rem; }
+.my-2 { margin-block: 1rem; }
+.my-3 { margin-block: 1.5rem; }
+.my-4 { margin-block: 2rem; }
 
- /*borders*/
+/* Padding */
+.p-0 { padding: 0; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* Inline Padding (Left/Right) */
+.px-1 { padding-inline: 0.5rem; }
+.px-2 { padding-inline: 1rem; }
+.px-3 { padding-inline: 1.5rem; }
+.px-4 { padding-inline: 2rem; }
+
+/* ==========================================================================
+   3. Borders & Shapes (Isolated from Shadows)
+   ========================================================================== */
+.border-thin  { border: 1px solid var(--unholy-border); }
+.border-thick { border: 3px solid var(--unholy-border); }
+.border-none  { border: none; }
+
+.rounded-sm { border-radius: 0.25rem; }
+.rounded    { border-radius: 0.5rem; }
+.curved     { border-radius: 1rem; }
+.circle     { border-radius: 50%; }
+
+/* ==========================================================================
+   4. Pure Shadows
+   ========================================================================== */
 .shadow {
-   -webkit-transition: -webkit-box-shadow .25s;
-   transition: -webkit-box-shadow .25s;
-   transition: box-shadow .25s;
-   transition: box-shadow .25s, -webkit-box-shadow .25s;
-   box-shadow: 0 4px 8px 0 var(--unholy-main);
-   transition: 0.3s;
-}
-.shadow:hover {
-   box-shadow: 0 8px 16px 0 var(--unholy-main);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.thin {
-   border: 1px solid var(--unholy-border);
+.shadow-hover:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
-.thick {
-   border: 3px solid var(--unholy-border);
-}
+/* ==========================================================================
+   5. Quick Flexbox Modifiers
+   ========================================================================== */
+.d-flex         { display: flex; }
+.flex-col       { flex-direction: column; }
+.flex-row       { flex-direction: row; }
+.justify-center { justify-content: center; }
+.justify-between{ justify-content: space-between; }
+.items-center   { align-items: center; }
 
-.rounded {
-   border-radius: 0.50rem;
-}
+/* ==========================================================================
+   6. Display & Theme Colors
+   ========================================================================== */
+.hidden { display: none !important; }
 
-.curved {
-   border-radius: 5%;
-}
-
-.circle {
-   border-radius: 50%;
- }
+.bg-main      { background-color: var(--unholy-main); color: var(--unholy-font); }
+.bg-secondary { background-color: var(--unholy-secondary); color: var(--unholy-font); }
