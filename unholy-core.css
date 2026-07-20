@@ -1,239 +1,154 @@
 @import url('https://rsms.me/inter/inter.css');
- html {font-family: 'Inter', sans-serif;}
- @supports (font-variation-settings: normal) {
-     html {font-family: 'Inter var', sans-serif;}
-}
-
 @import "core/unholy-variables.css";
 
- body {
-     background-color: var(--unholy-background);
-     color: var(--unholy-font);
+/* --- 1. Modern Reset & Base --- */
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
 }
+
+html {
+    font-family: 'Inter var', 'Inter', sans-serif;
+    color-scheme: dark light;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: var(--unholy-background);
+    color: var(--unholy-font);
+    min-height: 100vh;
+}
+
+/* Fluid Typography */
+h1, h2, h3, h4, h5, h6 { line-height: 1.2; margin-block-end: 1rem; }
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+p { margin-block-end: 1rem; }
+
+/* --- 2. Layout & Grid (Gap-based) --- */
 .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 3vw, 2rem);
 }
-.container > div.row {
-    display: -ms-flexbox;
+
+.row {
     display: flex;
-    flex-flow: row wrap;
-    margin-right: -15px;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-block-end: 1.5rem;
 }
 
-.row > div.box-small{
-   width: 22%;
-   margin: 5px;
-   flex: auto;
-}
-@media screen and (min-width : 320px) and (max-width : 670px) {
-    .row > div.box-small{width: 100%;}
+/* Mobile First: All boxes span 100% vertically */
+.row > * {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.row > div.box-medium{
-   width: 48%;
-   margin: 5px;
-   flex: auto;
+/* Tablet Tier (~600px+): Introduce 2-column layouts to prevent squishing */
+@media screen and (min-width: 600px) {
+    .box-small  { flex: 1 1 calc(50% - 1.5rem); } 
+    .box-medium { flex: 1 1 calc(50% - 1.5rem); }
+    .box-large  { flex: 1 1 100%; }
 }
 
-.row > div.box-large{
-   width: 100%;
-   margin-left: 0;
-   flex: auto;
+/* Desktop Tier (~900px+): Full multi-column layout */
+@media screen and (min-width: 900px) {
+    .box-small  { flex: 1 1 calc(25% - 1.5rem); } 
+    .box-medium { flex: 1 1 calc(50% - 1.5rem); }
+    .box-large  { flex: 1 1 100%; }
 }
 
-@media screen and (min-width : 320px) {
-   .container {
-       width: 90%;
-       margin-left: 2%;
-  }
-}
-@media screen and (min-width: 680px) {
-   .container {
-       width: 85%;
-       margin-left: 4%;
-  }
-}
-@media screen and (min-width : 1024px) {
-   .container {
-       width: 80%;
-       margin-left: 8%;
-  }
+/* --- 3. Interactive Elements --- */
+a {
+    color: var(--unholy-main);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
- a:link {color: var(--unholy-main);}
- a:visited {color: var(--unholy-font);}
- a:hover { color: var(--unholy-secondary)}
- a:active {color: var(--unholy-secondary);}
+a:hover, a:active { color: var(--unholy-secondary); }
 
- a.button{
-     display:inline-block;
-     padding:0.3em 1.2em;
-     margin:0 0.3em 0.3em 0;
-     border-radius:2em;
-     box-sizing: border-box;
-     text-decoration:none;
-     font-family:'Roboto',sans-serif;
-     font-weight:300;
-     color:var(--unholy-font);
-     background-color: var(--unholy-main);
-     text-align:center;
-     transition: all 0.2s;
-}
- a.button:hover{background-color: var(--unholy-secondary);
-}
- @media all and (max-width:30em) {
-     a.button {
-         display:block;
-         margin:0.2em auto;
-    }
-}
-/*Forms*/
-/* Style inputs, select elements and textareas */
- input[type=text], select, textarea{
-     width: 100%;
-     padding: 12px;
-     border: 1px solid #ccc;
-     border-radius: 4px;
-     box-sizing: border-box;
-     resize: vertical;
-}
- option:checked {box-shadow: 0 0 10px 100px var(--unholy-main) inset;
-}
-/* Style the label to display next to the inputs */
- label {
-     padding: 12px 12px 12px 0;
-     display: inline-block;
-}
-/* Style the submit button */
- input[type=submit] {
-     background-color: var(--unholy-main);
-     color: var(--unholy-font);
-     padding: 12px 20px;
-     border: none;
-     border-radius: 4px;
-     cursor: pointer;
-     float: right;
-}
-/* Floating column for labels: 25% width */
- .col-25 {
-     float: left;
-     width: 25%;
-     margin-top: 6px;
-}
-/* Floating column for inputs: 75% width */
- .col-75 {
-     float: left;
-     width: 75%;
-     margin-top: 6px;
-}
-/* Clear floats after the columns */
- .row:after {
-     content: "";
-     display: table;
-     clear: both;
-}
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
- @media screen and (max-width: 600px) {
-     .col-25, .col-75, input[type=submit] {
-         width: 100%;
-         margin-top: 0;
-    }
-}
-/*List*/
- .list {
-     display: -ms-flexbox;
-     display: flex;
-     -ms-flex-direction: column;
-     flex-direction: column;
-     padding-left: 0;
-     margin-bottom: 0;
-     margin-right: 0;
-}
- .list-item {
-     color: var(--unholy-font);
-     text-align: inherit;
-}
- @media screen and (min-width : 320px) {
-     .list-item {margin-right: 10%;}
-}
- @media screen and (min-width: 680px) {
-     .container {margin-right: 5%;}
-}
- .list--item-action:hover, .list-group-item-action:focus {
-     z-index: 1;
-     color: var(--unholy-font);
-     text-decoration: none;
-     background-color: var(--unholy-background);
-}
- .list-item-action:active {
-     color: var(--unholy-font);
-     background-color: var(--unholy-background);
-}
- .list-item {
-     position: relative;
-     display: block;
-     padding: 0.75rem 1.25rem;
-     margin-bottom: -1px;
-     background-color: var(--unholy-background);
-     border: 1px solid var(--unholy-border);
-}
- .list-item:first-child {
-     border-top-left-radius: 0.25rem;
-     border-top-right-radius: 0.25rem;
-}
- .list-item:last-child {
-     margin-bottom: 0;
-     border-bottom-right-radius: 0.25rem;
-     border-bottom-left-radius: 0.25rem;
-}
-/*Images*/
-img {
-    height: auto;
-    width: 100%;
-    max-width: 720px;
-  }
-  
-/*Cards*/
- .card {
-     position: relative;
-     margin: 1rem 1rem 1rem 0;
-     background-color: var(--unholy-background);
-     color:var(--unholy-font);
-     padding-left: 1em;
-     padding-right: 1em;
-}
-
- .card-header {
-     position: relative;
-     margin: 0.5rem 0 1rem 0;
-     background-color: var(--unholy-background);
-     color:var(--unholy-font);
-}
- .card-action {text-transform: uppercase;}
-
- /*table*/
- .table-container {overflow-x:auto;}
- table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid var(--unholy-border);
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even){background-color: var(--unholy-secondary)}
-
-/*highlighting on the page*/
-::selection {
+a.button, button, input[type="submit"] {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
     color: var(--unholy-font);
-    background: var(--unholy-main);
- }
+    background-color: var(--unholy-main);
+    border: none;
+    border-radius: 0.25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+a.button:hover, button:hover, input[type="submit"]:hover { 
+    background-color: var(--unholy-secondary); 
+}
+
+/* --- 4. Forms --- */
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-block-start: 0.5rem;
+    border: 1px solid var(--unholy-border);
+    background-color: var(--unholy-background); /* Swapped to background to look recessed */
+    color: inherit;
+    border-radius: 0.25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--unholy-main);
+    box-shadow: 0 0 0 3px rgba(218, 54, 51, 0.15); /* Modern glow focus ring */
+}
+
+label { display: block; font-weight: 500; }
+
+/* --- 5. Components (Cards & Lists) --- */
+.card {
+    background-color: var(--unholy-surface); /* Uses the new elevated color */
+    color: var(--unholy-font);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1.5rem;
+    border: 1px solid var(--unholy-border);
+    border-radius: 0.5rem; /* Add a slight default radius to soften the edges */
+}
+
+.card-header { margin-block-end: 1rem; font-weight: 600; font-size: 1.25rem; }
+.card-content { flex-grow: 1; }
+.card-action { margin-block-start: 1.5rem; padding-block-start: 1rem; border-top: 1px solid var(--unholy-border); }
+
+.list { list-style: none; }
+.list-item {
+    display: block;
+    padding: 1rem;
+    background-color: var(--unholy-background);
+    border: 1px solid var(--unholy-border);
+    margin-block-end: -1px;
+}
+
+a.list-item:hover { background-color: rgba(255, 255, 255, 0.05); }
+
+/* --- 6. Media & Tables --- */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.table-container { overflow-x: auto; margin-block-end: 1.5rem; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 1rem; border-bottom: 1px solid var(--unholy-border); }
+tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.02); }
+
+::selection { color: var(--unholy-font); background: var(--unholy-main); }

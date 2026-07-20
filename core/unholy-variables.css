@@ -1,9 +1,9 @@
 /*Variables in this file will be used across any extension files pulled in*/
-
 :root {
-   --unholy-background: #333;
-   --unholy-font: #f2f2f2;
-   --unholy-main: #d4351c;
-   --unholy-secondary: #cf4530;
-   --unholy-border: rgba(212, 53, 28, 0.25);
+   --unholy-background: #0d1117; 
+   --unholy-surface: #161b22;    
+   --unholy-font: #e6edf3;       
+   --unholy-main: #da3633;       
+   --unholy-secondary: #f85149;
+   --unholy-border: rgba(255, 255, 255, 0.1); 
 }

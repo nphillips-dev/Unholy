@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test: Utilities</title>
+    <link rel="stylesheet" href="../unholy-core.css">
+    <link rel="stylesheet" href="../unholy-utility.css">
+    <link rel="stylesheet" href="../unholy-navigation.css">
+</head>
+<body>
+
+<nav id="hamnav">
+    <label for="hamburger">&#9776; Main Menu</label>
+    <input type="checkbox" id="hamburger"/>
+    
+    <div id="hamitems">
+            <a href="index.html" class="nav-item">Dashboard</a>
+            <a href="test-grid.html" class="nav-item">Grid</a>
+            <a href="test-forms.html" class="nav-item">Forms</a>
+            <a href="test-utilities.html" class="nav-item active">Utilities</a>
+            <a href="test-navigation.html" class="nav-item">Navigation</a>
+    </div>
+</nav>
+
+    <div class="container my-4">
+        
+        <div class="row">
+            <div class="box-large">
+                <div class="bg-main text-center shadow shadow-hover curved p-4 my-2">
+                    <h1 class="m-0 text-uppercase">Composed Banner</h1>
+                    <p class="text-muted m-0 font-bold">Built entirely with atomic utility classes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box-large">
+                <h2 class="text-left">Left Aligned</h2>
+                <h2 class="text-center text-uppercase">Center Aligned & Uppercase</h2>
+                <h2 class="text-right text-muted">Right Aligned & Muted</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            <div class="box-medium">
+                <h3>List Component</h3>
+                <ul class="list shadow rounded border-thin">
+                    <li class="list-item font-bold">Standard list item 1 (Bold)</li>
+                    <a href="#" class="list-item text-center bg-secondary">Linked list item (Secondary Bg)</a>
+                    <li class="list-item text-right text-muted">Right aligned (Muted)</li>
+                </ul>
+            </div>
+
+            <div class="box-medium">
+                <h3>Borders & Shapes</h3>
+                <div class="row items-center">
+                    <div class="box-small text-center">
+                        <div class="border-thick p-3">Thick</div>
+                    </div>
+                    <div class="box-small text-center">
+                        <div class="rounded border-thin p-3">Rounded</div>
+                    </div>
+                    <div class="box-small text-center">
+                        <div class="curved border-thin shadow shadow-hover p-3">Curved</div>
+                    </div>
+                    <div class="box-small text-center d-flex justify-center">
+                        <div class="circle border-thin d-flex items-center justify-center" style="width: 80px; height: 80px;">Circle</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
