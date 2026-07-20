@@ -1,9 +1,9 @@
 # Unholy
-A random thought which got carried away into an idea which became a light weight CSS "boilerplate"
+A random thought which got carried away into an idea which became a lightweight CSS "boilerplate".
 
-I had an idea of "oh I wonder what making a framework for CSS is like" but forgot im a jack of all trades and a master of none and I didn't know how to do that.
+I had an idea of "oh I wonder what making a framework for CSS is like" but forgot I'm a jack of all trades and a master of none and I didn't know how to do that.
 
-Instead I went insane, combining the features of about about half a dozen different frameworks into one tiny one. Enough power to give a grid with some common components (see References at the end of Readme).
+Instead, I went insane, combining the features of about half a dozen different frameworks into one tiny one. Enough power to give a grid with some common components (see References at the end of the Readme).
 
 ## Why??
 
@@ -11,35 +11,37 @@ My experience of front end frameworks is that, out of the box they are great, cu
 
 The idea here is you can build a quick and dirty site. It works on the concept that your theme colours are going to be used in multiple places and for different jobs, for example:
 
-Active nav item and a submit button - both need seperate CSS written but in Unholy both use the same colour variable, change that variable and both elements restyle. See section on variables.
+Active nav item and a submit button - both need separate CSS written but in Unholy both use the same colour variable, change that variable and both elements restyle. See section on variables.
 
-I appriciate this might be restrictive to some really flashy front end humans, I've tried to make this easy to override (no !important) but for those with the style sense of a fish i.e. me, this is a nice quick way to style a site.
+I appreciate this might be restrictive to some really flashy front end humans, I've tried to make this easy to override (no `!important`) but for those with the style sense of a fish i.e. me, this is a nice quick way to style a site.
 
-## Version 2 and Rules
+## Version 3.0.0 (The Modernization Rewrite)
 
-For v2.0.0 I did some research into flexbox, altered some of the core to simplify it but (hopefully) improve the responsiveness. 
+**🚨 WARNING: v3.0.0 is NOT backwards compatible with v2.x.x! 🚨** 
 
-Unholy development has 3 'rules':
-1. Any element, component, utility or navigation must impliment the core variables
-2. Optional styling e.g. borders, should be provided by utility classes where possible
-3. Unholy core cannot be longer than 300 lines long
+For v3, the framework underwent a massive overhaul to meet modern CSS standards. Floats are dead. Brittle margins are dead. Unholy now runs entirely on modern Flexbox, responsive fluid typography (`clamp()`), and Tailwind-inspired atomic utility classes.
+
+Unholy development still adheres to 3 strict 'rules':
+1. Any element, component, utility or navigation must implement the core variables.
+2. Optional styling (e.g., borders, spacing, backgrounds) should be provided by utility classes where possible.
+3. Unholy core cannot be longer than 300 lines long. *(We are currently sitting comfortably around 125).*
 
 ## Installation
 
 Pull down a copy of the project, or see the latest release files, you will see the following files:
-* unholy-core : required file, you must reference this stylesheet to access the responsive html elements
-* core/unholy-variable : required folder and file. You **do not** need to reference this but all unholy files use these variable.
-                         Editing this file provides site wide restyling to all colours.
-* unholy-utility : optional file providing css extention methods e.g. borders, alignment - class can be stacked.
-* unholy-navigation : optional file containing different navbars
+* `unholy-core.css` : required file, you must reference this stylesheet to access the responsive html elements and grid.
+* `core/unholy-variables.css` : required folder and file. You **do not** need to reference this in your HTML, but all unholy files use these variables. Editing this file provides site-wide restyling to all colours.
+* `unholy-utility.css` : optional file providing Tailwind-style CSS extension methods (spacing, alignments, borders) - classes can be stacked.
+* `unholy-navigation.css` : optional file containing modern flex-based navbars, sidebars, and dropdowns.
 
-## Core
+## Core Layout & Grid
 
-The following structure will provide a contain, with a row and a full width box, which contains a single card.
+The grid is now a robust 3-tier Flexbox system. Elements gracefully shift from 1 column (Mobile) &rarr; 2 columns (Tablet) &rarr; 4 columns (Desktop). Spacing is handled automatically via the `gap` property—no more messy padding!
 
     <div class="container">
         <div class="row">
-            <div class="box-large">
+            <!-- Box Classes: .box-small, .box-medium, .box-large -->
+            <div class="box-medium">
                 <div class="card">
                     <div class="card-header">
                         Card Header
@@ -48,119 +50,110 @@ The following structure will provide a contain, with a row and a full width box,
                         Ooo look a squirrel
                     </div>
                     <div class="card-action">
-                        <a href="#" target="_blank" rel="noopener noreferrer">Click Me!</a>
+                        <a href="#" class="button">Click Me!</a>
                     </div>
                 </div>
             </div>
         </div>  
     </div>
 
-Inside a row there are 3 types of basic boxes:
-
-* .box-small (22%)
-* .box-medium (50%)
-* .box-large (100%)
-
-Images do not require special structure:
-
+Images are naturally responsive, no special structure required:
+    
     <img src="" alt="">
 
-Combine with utility for effects e.g.
-
-    <img class="circle shadow" src="" alt="">
-        
-Lists are straight forward:
+Tables adhere to K.I.S.S principles - wrap them in a `table-container` div to ensure horizontal scrolling on tiny phone screens: 
     
-    <ul class="list">
-        <li class="list-item">
-            Help! I'm trapped in a list.
-        </li>
-    </ul>
-
-Tables adhere to K.I.S.S principles - you need a div wrapper with the `table-container` class
-N.B. put it on the row, the column or a new div if you like, doesn't seem to matter. 
-
-    <div class="row">
-        <div class="column-full table-container">
-            <table>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                </tr>
-                <tr>
-                  <td>Spooky</td>
-                  <td>Bob</td>
-                </tr>
-              </table>
-        </div>
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr>
+                <td>Spooky</td>
+                <td>Bob</td>
+            </tr>
+        </table>
     </div>
 
 ## Navigation
 
-The simplest of responsive nav, no collapsing, all menu
+The old `.w3-nav` class has been purged. Version 3 uses a highly structured, pure-flex `.navbar` component supporting dropdowns.
 
-    <div class="w3-nav">
-        <a href="#">Home</a>
-        <a href="#">Stuff</a>
-        <a class="active" href="#">Things</a>
-    </div>
-
-Those of a more refined pallet might enjoy this little number
-
-    <nav id="hamnav">
-        <label for="hamburger">&#9776;</label>
-        <input type="checkbox" id="hamburger"/>
-
-        <div id="hamitems">
-            <a href="#">Home</a>
-            <a href="#">Stuff</a>
-            <a class="active" href="#">Things</a>
+### Top Navbar
+    <nav class="navbar">
+        <a href="#" class="nav-brand">Brand</a>
+        
+        <div class="nav-links">
+            <a href="#" class="nav-item active">Home</a>
+            <a href="#" class="nav-item">About</a>
+        </div>
+        
+        <!-- Pushes links to the far right -->
+        <div class="nav-links ml-auto">
+            <div class="dropdown dropdown-right">
+                <button class="nav-item">Options ▾</button>
+                <div class="dropdown-content">
+                    <a href="#" class="nav-item">Settings</a>
+                    <a href="#" class="nav-item">Log Out</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-## Utility
+### Dashboard Sidebar
+Need an admin panel? Drop the `.sidebar` into a flex container:
+    
+    <nav class="sidebar">
+        <a href="#" class="nav-brand">Admin Panel</a>
+        <a href="#" class="nav-item active">Overview</a>
+        <a href="#" class="nav-item">Analytics</a>
+    </nav>
 
-No single site will ever be soley satisfied by a CSS boilerplate, you'll likely create a custom.css file and it'll fill up with the same classes, over and over again.
+## Utility (Tailwind-Style)
 
-Utility provides some of those classes, for use as you see fit e.g.
+No single site will ever be solely satisfied by a CSS boilerplate. Unholy v3 has shifted to an **atomic utility** mindset. You compose your UI by stacking small, single-purpose classes directly in your HTML.
 
-* Oh no! My cards are so boring! `<div class="card shadow">`
-* Oh no! My lists are left aligned! `<li class="list-item centered">`
-* Oh no! My lists are left aligned **AND** not curvey enough: `<li class="list-item centered rounded">`
+* Want a primary-colored box with padding and rounded corners? 
+  `<div class="bg-main p-4 rounded text-center">`
+* Want a list item with a faded text color and a thin border? 
+  `<li class="list-item text-muted border-thin">`
 
-* Text alignment
-  * center
-  * right
-  * left
-* borders
-  * shadow
-  * thin
-  * thick
-  * rounded
-  * curved
-  * circle
-* Styled elements
-  * banner
-  
+**Available Utilities:**
+* **Text Alignment:** `.text-center`, `.text-right`, `.text-left`
+* **Typography:** `.text-uppercase`, `.text-muted`, `.font-bold`
+* **Spacing Scale (0-4):**
+  * Margin: `.m-0` to `.m-4`, `.my-0` to `.my-4` (vertical)
+  * Padding: `.p-0` to `.p-4`, `.px-1` to `.px-4` (horizontal)
+* **Borders:** `.border-thin`, `.border-thick`, `.border-none`
+* **Radius:** `.rounded-sm`, `.rounded`, `.curved`, `.circle`
+* **Shadows:** `.shadow`, `.shadow-hover`
+* **Flex Modifiers:** `.d-flex`, `.flex-col`, `.items-center`, `.justify-center`
+* **Theme:** `.bg-main`, `.bg-secondary`
+
 ## Variables
 
-The top of each unholy file imports the variables file:
+The top of each unholy file imports the variables file. For v3, the default theme has been upgraded to a premium, deep dark mode.
 
     :root {
-    --unholy-background: #333;
-    --unholy-font: #f2f2f2;
-    --unholy-main: #d4351c;
-    --unholy-secondary: #cf4530;
-    --unholy-border: rgba(212, 53, 28, 0.25);
+       /* Deeper, cooler base canvas */
+       --unholy-background: #0d1117; 
+       /* Slightly lighter elevation for cards and navbars */
+       --unholy-surface: #161b22;    
+       /* Softer, premium typography colors */
+       --unholy-font: #e6edf3;       
+       /* Crisper reds */
+       --unholy-main: #da3633;       
+       --unholy-secondary: #f85149;
+       /* Neutral, ultra-subtle structural borders */
+       --unholy-border: rgba(255, 255, 255, 0.1); 
     }
 
-The default theme is all black and red but all the unholy files use var() placeholders. Why?
-Because now you've only got to change those variable colours and the whole of your site restyles.
-
+Because all files use `var()` placeholders, you only have to change those six variables, and the entire framework restyles itself to your new brand instantly.
 
 ## References / Thanks / Inspiration
 
-Feel free to pull down, mangle and use to your hearts content but please, please visit and use the work of the people who know what they are doing and worked hard on beautiful things for you all.
+Feel free to pull down, mangle and use to your heart's content, but please visit and use the work of the people who know what they are doing and worked hard on beautiful things for you all.
 
 * Buttons: https://fdossena.com/index.php?p=html5cool/buttons/i.frag
 * Colours: https://design-system.service.gov.uk/styles/colour/
@@ -168,9 +161,9 @@ Feel free to pull down, mangle and use to your hearts content but please, please
 * Ham nav: https://code-boxx.com/simple-responsive-pure-css-hamburger-menu/
 * Cards based on: https://materializecss.com/
 * List items: https://getbootstrap.com/
-* Images: https://www.freecodecamp.org/news/time-saving-css-techniques-to-create-responsive-images-ebb1e84f90d5/ 
 * Ideas and inspiration from:
-* https://milligram.io/
-* http://getskeleton.com/
+  * https://milligram.io/
+  * http://getskeleton.com/
+  * Tailwind CSS (for v3 utility inspiration)
 
-N.B. People of the links, if I angered you by involving your code in this nightmare then ping me and I'll cut it out! 
+N.B. People of the links, if I angered you by involving your code in this nightmare then ping me and I'll cut it out!
