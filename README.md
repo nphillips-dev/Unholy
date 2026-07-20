@@ -33,6 +33,7 @@ Pull down a copy of the project, or see the latest release files, you will see t
 * `core/unholy-variables.css` : required folder and file. You **do not** need to reference this in your HTML, but all unholy files use these variables. Editing this file provides site-wide restyling to all colours.
 * `unholy-utility.css` : optional file providing Tailwind-style CSS extension methods (spacing, alignments, borders) - classes can be stacked.
 * `unholy-navigation.css` : optional file containing modern flex-based navbars, sidebars, and dropdowns.
+* `unholy-animations.css` : **(New in v3.1.0)** optional file containing accessible, hardware-accelerated UI micro-interactions.
 
 ## Core Layout & Grid
 
@@ -130,6 +131,25 @@ No single site will ever be solely satisfied by a CSS boilerplate. Unholy v3 has
 * **Shadows:** `.shadow`, `.shadow-hover`
 * **Flex Modifiers:** `.d-flex`, `.flex-col`, `.items-center`, `.justify-center`
 * **Theme:** `.bg-main`, `.bg-secondary`
+
+## Animations (v3.1.0)
+
+Version 3.1.0 introduces an optional `unholy-animations.css` module focused strictly on professional UI micro-interactions. It exclusively animates opacity and transforms to ensure 60fps performance without layout jank, and fully supports OS-level `prefers-reduced-motion` accessibility standards.
+
+* **Entrance Animations:** `.anim-fade-in`, `.anim-slide-up`
+* **Staggered Delays:** Combine entrance animations with `.delay-100`, `.delay-200`, or `.delay-300` for cascading loads.
+* **Infinite States:** `.anim-spin`, `.anim-pulse`
+* **Components:** `.loader` (combine with `.anim-spin` for a lightweight CSS loading ring).
+
+    <!-- Example: Staggered Slide-Up Card -->
+    <div class="box-small anim-slide-up delay-100">
+        <div class="card text-center">
+            <h3>Item 1</h3>
+        </div>
+    </div>
+    
+    <!-- Example: Spinner -->
+    <div class="loader anim-spin"></div>
 
 ## Variables
 
