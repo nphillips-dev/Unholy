@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test: Multiple Themes</title>
+    <link rel="stylesheet" href="../unholy-core.css">
+    <link rel="stylesheet" href="../unholy-utility.css">
+    <link rel="stylesheet" href="../unholy-navigation.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Unholy Test Suite</a>
+        <div class="nav-links ml-auto">
+            <a href="index.html" class="nav-item">Dashboard</a>
+            <a href="test-grid.html" class="nav-item">Grid</a>
+            <a href="test-forms.html" class="nav-item">Forms</a>
+            <a href="test-utilities.html" class="nav-item">Utilities</a>
+            <a href="test-navigation.html" class="nav-item">Navigation</a>
+            <a href="test-animations.html" class="nav-item">Animations</a>
+            <a href="test-themes.html" class="nav-item">Themes</a>
+            <a href="test-themes.html" class="nav-item active">Themes</a>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        
+        <div class="bg-main text-center shadow rounded p-4 my-4">
+            <h1 class="m-0 text-uppercase">Theme Engine</h1>
+            <p class="font-bold m-0" style="color: rgba(255,255,255,0.8);">Test native OS toggling and explicit data-theme injection.</p>
+        </div>
+
+        <div class="row">
+            <div class="box-large text-center">
+                <h2>Select a Theme</h2>
+                <p class="text-muted">Clicking these buttons updates the <code>data-theme</code> attribute on the root HTML tag.</p>
+                
+                <div class="d-flex justify-center" style="gap: 1rem;">
+                    <!-- 'auto' removes the attribute, falling back to OS settings -->
+                    <button class="button" onclick="setTheme('auto')">💻 OS Default</button>
+                    <button class="button bg-secondary" onclick="setTheme('light')">☀️ Force Light</button>
+                    <button class="button bg-secondary" onclick="setTheme('dark')">🌙 Force Dark</button>
+                    <!-- Custom Ocean theme -->
+                    <button class="button" style="background-color: #0ea5e9;" onclick="setTheme('ocean')">🌊 Ocean</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="box-medium">
+                <div class="card shadow-hover">
+                    <div class="card-header border-thin rounded p-2 text-center bg-secondary">
+                        Surface Contrast Test
+                    </div>
+                    <div class="card-content mt-3">
+                        <p>This card demonstrates how the <code>--unholy-surface</code> variable creates depth against the <code>--unholy-background</code> canvas across different themes.</p>
+                        <ul class="list border-thin rounded shadow">
+                            <li class="list-item font-bold">Item 1 (Bold)</li>
+                            <li class="list-item text-muted">Item 2 (Muted)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-medium">
+                <div class="card shadow-hover">
+                    <div class="card-header">
+                        Input Styling Test
+                    </div>
+                    <div class="card-content">
+                        <label class="text-muted text-sm">Example Text Input</label>
+                        <input type="text" placeholder="Type something..." class="mb-3">
+                        
+                        <label class="text-muted text-sm">Dropdown Select</label>
+                        <select>
+                            <option>Option A</option>
+                            <option>Option B</option>
+                        </select>
+                    </div>
+                    <div class="card-action text-right">
+                        <button class="button">Submit Data</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The Theme Toggler Script -->
+    <script>
+        function setTheme(themeName) {
+            if (themeName === 'auto') {
+                // Remove the attribute entirely to rely on OS default media queries
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                // Force a specific theme
+                document.documentElement.setAttribute('data-theme', themeName);
+            }
+        }
+    </script>
+</body>
+</html>
