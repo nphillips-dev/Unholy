@@ -1,24 +1,96 @@
 @import "core/unholy-variables.css";
 
-/* --- Standard Nav --- */
-.w3-nav {
+/* --- 1. The Modern Navbar --- */
+.navbar {
     background-color: var(--unholy-background);
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 1rem;
+    min-height: 60px;
     border-bottom: 1px solid var(--unholy-border);
+    position: relative;
 }
 
-.w3-nav a {
+.nav-brand {
+    font-size: 1.25rem;
+    font-weight: bold;
     color: var(--unholy-font);
-    padding: 14px 16px;
     text-decoration: none;
-    transition: background-color 0.2s;
+    margin-right: 1.5rem;
 }
 
-.w3-nav a:hover { background-color: rgba(255, 255, 255, 0.1); }
-.w3-nav a.active { background-color: var(--unholy-main); }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
 
-/* --- Hamburger Nav --- */
+.nav-item {
+    display: flex;
+    align-items: center;
+    color: var(--unholy-font);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.nav-item:hover, .dropdown:hover .nav-item { 
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.nav-item.active { 
+    background-color: var(--unholy-main); 
+}
+
+.ml-auto { margin-left: auto; }
+
+/* --- 2. Dropdowns --- */
+.dropdown {
+    position: relative;
+    display: inline-flex; /* FIX: Forces wrapper to shrink-wrap the button */
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--unholy-background);
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    border: 1px solid var(--unholy-border);
+    border-radius: 0.25rem;
+    flex-direction: column;
+    top: 100%; 
+    left: 0;
+    margin-top: 0.25rem;
+    overflow: hidden;
+}
+
+.dropdown-right .dropdown-content {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-content .nav-item {
+    justify-content: flex-start;
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 1rem;
+}
+
+.dropdown-content .nav-item:last-child { border-bottom: none; }
+
+.dropdown:hover .dropdown-content { display: flex; }
+
+/* --- 3. Hamburger Nav (Mobile Sticky) --- */
 #hamnav {
     width: 100%;
     background: var(--unholy-background);
@@ -35,26 +107,21 @@
     width: 100%;
 }
 
-#hamitems a {
+#hamitems .nav-item {
     flex-grow: 1;
-    padding: 15px;
-    color: var(--unholy-font);
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.2s;
+    justify-content: center;
+    border-radius: 0;
+    padding: 1rem;
 }
-
-#hamitems a:hover { background-color: rgba(255, 255, 255, 0.1); }
-#hamitems a.active { background-color: var(--unholy-main); }
 
 @media screen and (max-width: 768px) {
     #hamnav label { 
         display: block; 
         color: var(--unholy-font);
-        background: var(--unholy-background);
-        padding: 15px;
+        padding: 1rem;
         cursor: pointer;
         font-size: 1.2rem;
+        font-weight: bold;
     }
 
     #hamnav label:hover { background-color: rgba(255, 255, 255, 0.1); }
@@ -64,11 +131,40 @@
         flex-direction: column;
     }
 
-    #hamitems a {
-        width: 100%;
-        text-align: left;
+    #hamitems .nav-item {
+        justify-content: flex-start;
         border-top: 1px solid var(--unholy-border);
     }
 
     #hamnav input:checked ~ #hamitems { display: flex; }
 }
+
+/* --- 4. Sidebar Navigation --- */
+/* --- 4. Sidebar Navigation --- */
+.sidebar {
+    height: 100%; /* Changed from 100vh to fit inside containers */
+    min-height: 300px;
+    width: 250px;
+    background-color: var(--unholy-background);
+    border-right: 1px solid var(--unholy-border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.sidebar .nav-brand {
+    padding: 1.5rem 1rem;
+    margin: 0;
+    border-bottom: 1px solid var(--unholy-border);
+    display: block;
+    text-align: center;
+}
+
+.sidebar .nav-item {
+    justify-content: flex-start;
+    border-radius: 0;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar .nav-item:last-child { border-bottom: none; }

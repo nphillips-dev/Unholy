@@ -3,55 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unholy v2 - Test Suite</title>
+    <title>C.R. Blackwood - Unholy v2 Test Suite</title>
     <link rel="stylesheet" href="../unholy-core.css">
     <link rel="stylesheet" href="../unholy-utility.css">
     <link rel="stylesheet" href="../unholy-navigation.css">
 </head>
 <body>
 
-    <nav id="hamnav">
-        <label for="hamburger">&#9776; Unholy Test Suite</label>
-        <input type="checkbox" id="hamburger"/>
-        <div id="hamitems">
-            <a href="index.html" class="active">Dashboard</a>
-            <a href="test-grid.html">Grid & Cards</a>
-            <a href="test-forms.html">Forms & Tables</a>
-            <a href="test-utilities.html">Utilities</a>
-        </div>
-    </nav>
+<nav id="hamnav">
+    <label for="hamburger">&#9776; Main Menu</label>
+    <input type="checkbox" id="hamburger"/>
+    
+    <div id="hamitems">
+            <a href="index.html" class="nav-item active">Dashboard</a>
+            <a href="test-grid.html" class="nav-item">Grid</a>
+            <a href="test-forms.html" class="nav-item">Forms</a>
+            <a href="test-utilities.html" class="nav-item">Utilities</a>
+            <a href="test-navigation.html" class="nav-item">Navigation</a>
+    </div>
+</nav>
 
-    <div class="container">
-        <div class="banner center shadow curved">
-            <h1>Unholy v2.0.0 Test Suite</h1>
-            <p>Select a module below to test the responsive framework components.</p>
+    <div class="container my-4">
+        <div class="bg-main text-center shadow shadow-hover curved p-4 my-4">
+            <h1 class="m-0">Unholy v2.0.0 Test Suite</h1>
+            <p class="m-0 text-muted font-bold">Select a module below to test the responsive framework components.</p>
         </div>
 
         <div class="row">
             <div class="box-small">
-                <div class="card shadow rounded">
-                    <div class="card-header center">Layouts</div>
-                    <div class="card-content center">Test the flexbox grid and card components.</div>
-                    <div class="card-action center">
-                        <a href="test-grid.html" class="button">Test Grid</a>
+                <div class="card shadow rounded border-thin">
+                    <div class="card-header text-center">Layouts</div>
+                    <div class="card-content text-center">Test the flexbox grid and card components.</div>
+                    <div class="card-action text-center">
+                        <a href="test-grid.html" class="button m-0">Test Grid</a>
                     </div>
                 </div>
             </div>
             <div class="box-small">
-                <div class="card shadow rounded">
-                    <div class="card-header center">Data Input</div>
-                    <div class="card-content center">Test form elements and responsive tables.</div>
-                    <div class="card-action center">
-                        <a href="test-forms.html" class="button">Test Forms</a>
+                <div class="card shadow rounded border-thin">
+                    <div class="card-header text-center">Data Input</div>
+                    <div class="card-content text-center">Test form elements and responsive tables.</div>
+                    <div class="card-action text-center">
+                        <a href="test-forms.html" class="button m-0">Test Forms</a>
                     </div>
                 </div>
             </div>
             <div class="box-small">
-                <div class="card shadow rounded">
-                    <div class="card-header center">Visuals</div>
-                    <div class="card-content center">Test utility classes, lists, and typography.</div>
-                    <div class="card-action center">
-                        <a href="test-utilities.html" class="button">Test Utilities</a>
+                <div class="card shadow rounded border-thin">
+                    <div class="card-header text-center">Visuals</div>
+                    <div class="card-content text-center">Test utility classes, lists, and typography.</div>
+                    <div class="card-action text-center">
+                        <a href="test-utilities.html" class="button m-0">Test Utilities</a>
+                    </div>
+                </div>
+            </div>
+            <div class="box-small">
+                <div class="card shadow rounded border-thin">
+                    <div class="card-header text-center">Navigation</div>
+                    <div class="card-content text-center">Test sticky navs, sidebars, and pure CSS dropdowns.</div>
+                    <div class="card-action text-center">
+                        <a href="test-navigation.html" class="button m-0">Test Nav</a>
                     </div>
                 </div>
             </div>
